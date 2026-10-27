@@ -1,6 +1,9 @@
 import json
+import io
 import unittest
+import urllib.error
 from pathlib import Path
+from unittest.mock import patch
 
 import extract
 
@@ -41,6 +44,25 @@ class ExtractionTests(unittest.TestCase):
         for path in [Path('reports/does-not-exist.pdf'), Path('schema.json')]:
             with self.subTest(path=path), self.assertRaises(RuntimeError):
                 extract.load_pages(path)
+
+    def test_transient_http_failure_retries_once(self):
+        failure = urllib.error.HTTPError('https://example.invalid', 503, 'Unavailable', {}, None)
+        success = io.BytesIO(json.dumps(response({'tests': []})).encode())
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}), \
+             patch('extract.load_pages', return_value=[]), \
+             patch('extract.urllib.request.urlopen', side_effect=[failure, success]) as call, \
+             patch('extract.time.sleep'):
+            self.assertEqual(extract.extract(Path('unused.pdf')), {'tests': []})
+            self.assertEqual(call.call_count, 2)
+
+    def test_auth_failure_does_not_retry(self):
+        failure = urllib.error.HTTPError('https://example.invalid', 403, 'Forbidden', {}, None)
+        with patch.dict('os.environ', {'GEMINI_API_KEY': 'test-only'}), \
+             patch('extract.load_pages', return_value=[]), \
+             patch('extract.urllib.request.urlopen', side_effect=failure) as call:
+            with self.assertRaisesRegex(RuntimeError, 'HTTP 403'):
+                extract.extract(Path('unused.pdf'))
+            self.assertEqual(call.call_count, 1)
 
 
 if __name__ == '__main__':

@@ -161,14 +161,22 @@ def main():
                 continue
             record = json.loads(path.read_text(encoding='utf-8'))
         else:
-            record = {'report': report.name, 'prediction': None, 'usage': [], 'error': None}
+            record = {'report': report.name, 'prediction': None, 'usage': [], 'error': None,
+                      'responses': []}
             original_open = urllib.request.urlopen
 
             def measured_open(*a, **kw):
-                with original_open(*a, **kw) as response:
-                    payload = response.read()
+                try:
+                    with original_open(*a, **kw) as response:
+                        payload = response.read()
+                except Exception as error:
+                    record['responses'].append({'error_type': type(error).__name__,
+                                                'http_status': getattr(error, 'code', None)})
+                    raise
                 data = json.loads(payload)
                 record['usage'].append(data.get('usageMetadata', {}))
+                record['responses'].append({'candidates': data.get('candidates', []),
+                                            'promptFeedback': data.get('promptFeedback')})
                 return io.BytesIO(payload)
 
             started = time.perf_counter()
@@ -180,6 +188,9 @@ def main():
                 # Avoid saving exception messages that might contain credentials or URLs.
                 record['error'] = {'type': type(error).__name__,
                                    'http_status': getattr(error, 'code', None)}
+                if isinstance(error, RuntimeError):
+                    message = str(error).replace(os.environ.get('GEMINI_API_KEY') or '\0', '[REDACTED]')
+                    record['error']['message'] = message[:500]
                 print(report.name, 'FAILED:', type(error).__name__, flush=True)
             finally:
                 urllib.request.urlopen = original_open

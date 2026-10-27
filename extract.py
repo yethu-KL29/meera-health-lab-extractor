@@ -8,6 +8,7 @@ import io
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -117,13 +118,19 @@ def extract(path: Path) -> dict:
         f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent',
         data=json.dumps(body).encode(),
         headers={'x-goog-api-key': key, 'Content-Type': 'application/json'})
-    try:
-        with urllib.request.urlopen(request, timeout=60) as response:
-            return parse_response(json.load(response))
-    except urllib.error.HTTPError as error:
-        raise RuntimeError(f'Gemini HTTP {error.code}; check model access, key, or quota.') from None
-    except (urllib.error.URLError, TimeoutError):
-        raise RuntimeError('Gemini connection failed or timed out; check network and retry.') from None
+    for attempt in range(2):
+        try:
+            with urllib.request.urlopen(request, timeout=60) as response:
+                return parse_response(json.load(response))
+        except urllib.error.HTTPError as error:
+            if attempt == 0 and error.code in (429, 500, 502, 503, 504):
+                time.sleep(2)
+                continue
+            raise RuntimeError(f'Gemini HTTP {error.code}; check model access, key, or quota.') from None
+        except (urllib.error.URLError, TimeoutError):
+            raise RuntimeError('Gemini connection failed or timed out; check network and retry.') from None
+        except ValueError:
+            raise RuntimeError('Gemini returned an invalid JSON response.') from None
 
 
 if __name__ == '__main__':
