@@ -1,1 +1,3 @@
-# No Python packages required. Python 3.10+ and Poppler (pdftoppm) are needed.
+# Python 3.10+. Poppler is required only for the unchanged baseline.
+pypdfium2==5.14.0
+jsonschema==4.26.0
