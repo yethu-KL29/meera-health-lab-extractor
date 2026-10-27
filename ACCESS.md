@@ -1,0 +1,9 @@
+# Model access decisions
+
+2026-10-27: Python 3.13.0 is installed. Poppler was absent from PATH; a local ignored copy of the Windows distribution (release 26.09.0-0 from https://github.com/oschwartz10612/poppler-windows) was downloaded to run the unchanged baseline. PDFium is used for local source inspection and will avoid an external executable in the final extractor.
+
+The supplied default `gemini-3.8-flash` appears in the model listing, but a minimal generation request timed out after 30 seconds. A full baseline attempt was interrupted before the first report returned; its `results/baseline/run.json` is retained as incomplete provenance, not scored as an accuracy result. Two minimal fallback requests to `gemini-2.5-flash` and `gemini-2.5-flash-lite` returned HTTP 404 despite appearing in model listings. `gemini-3.1-flash-lite` returned a valid two-token response in 2.28 seconds. Therefore baseline and final use **the same `gemini-3.1-flash-lite` model**, and baseline extraction behavior remains unchanged. This is an access substitution, not a claimed model-quality improvement.
+
+Keys are read from the local environment or an ignored `.env`; they are never saved in result artifacts. The provided key was shared in chat; do not export this chat unredacted. No unedited transcript is included. The user's billing tier and actual account charges are unknown; report estimated standard list-price cost, not a claim of zero spend.
+
+Rate source checked 2026-10-27: https://ai.google.dev/gemini-api/docs/pricing. Gemini 3.1 Flash-Lite standard text/image input is $0.25 per million tokens; output including thinking is $1.50 per million tokens. Estimate = (prompt tokens × 0.25 + (candidate tokens + thinking tokens) × 1.50) / 1,000,000. Caching, batch discounts, local compute, and unobserved failed-call charges are excluded. Do not apply these rates to arbitrary `GEMINI_MODEL` overrides.

@@ -147,6 +147,8 @@ def main():
                     'started_utc': datetime.now(timezone.utc).isoformat(),
                     'source_sha256': hashlib.sha256(Path(module.__file__).read_bytes()).hexdigest(),
                     'scorer_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                    'dpi': module.DPI, 'temperature': 0, 'max_output_tokens': 16000,
+                    'prompt': module.PROMPT,
                     'actual_spend_usd': None, 'note': 'Spend requires account billing verification.'}
         (args.output / 'run.json').write_text(json.dumps(metadata, indent=2))
     records = []
@@ -203,7 +205,8 @@ def main():
                'failed_reports': sum(r['error'] is not None for r in records),
                'median_latency_seconds': statistics.median(r['latency_seconds'] for r in records) if records else None,
                'reports': records}
-    (args.output / 'evaluation.json').write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
+    filename = 'evaluation.json' if args.labels.name == 'gold' else f'evaluation-{args.labels.name}.json'
+    (args.output / filename).write_text(json.dumps(summary, indent=2, ensure_ascii=False), encoding='utf-8')
     print(json.dumps({k: v for k, v in summary.items() if k != 'reports'}, indent=2))
 
 
