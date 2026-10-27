@@ -1,4 +1,4 @@
-"""Run: python evaluate.py --implementation baseline --output results/baseline.
+"""Run: python scripts/evaluate.py --implementation baseline --output results/baseline.
 
 Scoring is deliberately independent of extraction; --score-only never calls a model.
 """
@@ -10,6 +10,7 @@ import json
 import os
 import re
 import statistics
+import sys
 import time
 import unicodedata
 import urllib.request
@@ -19,7 +20,8 @@ from pathlib import Path
 
 from jsonschema import validate
 
-ROOT = Path(__file__).resolve().parent
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 FIELDS = ('value', 'unit', 'reference_range')
 
 
@@ -140,7 +142,7 @@ def main():
     args = parser.parse_args()
     load_environment()
     schema = json.loads((ROOT / 'schema.json').read_text())
-    module = importlib.import_module(args.implementation)
+    module = importlib.import_module('baseline.extract' if args.implementation == 'baseline' else 'lab_extractor.pipeline')
     if not args.score_only:
         args.output.mkdir(parents=True, exist_ok=False)
         metadata = {'implementation': args.implementation, 'model': module.MODEL,
@@ -149,7 +151,15 @@ def main():
                     'scorer_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                     'dpi': module.DPI, 'temperature': 0, 'max_output_tokens': 16000,
                     'prompt': module.PROMPT,
+                    'response_json_schema': getattr(module, 'SCHEMA', None),
                     'actual_spend_usd': None, 'note': 'Spend requires account billing verification.'}
+        source_paths = [Path(module.__file__), ROOT / 'requirements.txt']
+        if args.implementation == 'extract':
+            source_paths += [ROOT / 'extract.py', ROOT / 'prompts/final.txt',
+                             *sorted((ROOT / 'lab_extractor').glob('*.py'))]
+        metadata['source_files_sha256'] = {
+            path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in source_paths}
         (args.output / 'run.json').write_text(json.dumps(metadata, indent=2))
     records = []
     for report in sorted((ROOT / 'reports').iterdir()):

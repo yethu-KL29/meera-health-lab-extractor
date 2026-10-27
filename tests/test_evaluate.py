@@ -1,6 +1,6 @@
 import unittest
 
-from evaluate import normal, score
+from scripts.evaluate import normal, score
 
 
 def row(value=1, unit='mg/dL', reference_range='0 - 2', test_name='CRP'):

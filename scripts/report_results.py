@@ -1,9 +1,13 @@
 """Reproduce original/audited scores and list-price estimates without API calls."""
 import json
 import statistics
+import sys
 from pathlib import Path
 
-from evaluate import FIELDS, ROOT, score
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+
+from scripts.evaluate import FIELDS, score
 
 RATES = {'gemini-3.1-flash-lite': (0.25, 1.50), 'gemini-3.5-flash-lite': (0.30, 2.50)}
 
@@ -55,7 +59,8 @@ def main():
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('runs', nargs='*', default=['baseline-flash-lite', 'final-verified', 'experiment-300dpi',
-                                                 'baseline-35-flash-lite', 'final-35-flash-lite'])
+                                                 'baseline-35-flash-lite', 'final-35-flash-lite',
+                                                 'final-pydantic-31', 'final-pydantic-35'])
     args = parser.parse_args()
     comparison = {run: summarize(ROOT / 'results' / run) for run in args.runs}
     (ROOT / 'results' / 'comparison.json').write_text(json.dumps(comparison, indent=2, ensure_ascii=False), encoding='utf-8')
