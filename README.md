@@ -2,39 +2,83 @@
 
 Extracts printed laboratory results from PDFs and phone photos into JSON. Processes all pages, preserves qualitative values/comparators, and leaves missing ranges null. Pydantic models generate Gemini's response schema and validate returned data; structural enforcement does not guarantee source accuracy.
 
-## Run
+## How it works
 
-Python **3.11+** (tested 3.13). Install dependencies and configure `GEMINI_API_KEY` through your local environment; never commit it.
+```mermaid
+flowchart LR
+    A["PDF or photo"] --> B["Prepare every page"]
+    B --> C["Gemini extraction"]
+    P["Prompt file"] --> C
+    S["Pydantic schema"] --> C
+    C --> V{"Validate response"}
+    S -.-> V
+    V -->|Valid| J["JSON stdout"]
+    V -->|Invalid or incomplete| E["Explicit error"]
+    C -->|Request failure| E
+```
+
+The same Pydantic definition constrains generation and validates responses. Selected HTTP failures get one bounded retry; [quota-aware backoff is proposed next-phase work](artifacts/PLAN.md#next-phase--operational-reliability-proposal-only).
+
+## Install and run
+
+Requirements: **Python 3.11+** (tested 3.13), Git, internet access, and an accessible Gemini API key. These commands use **Windows PowerShell**; [macOS/Linux instructions](artifacts/RUNNING.md#macos-and-linux) are also available. Poppler is needed only to reproduce the unchanged baseline.
+
+**1. Clone the project**
+
+```sh
+git clone https://github.com/yethu-KL29/meera-health-lab-extractor.git
+cd meera-health-lab-extractor
+```
+
+**2. Create an isolated environment and install dependencies**
 
 ```powershell
 python -m venv .venv
-.venv\Scripts\Activate.ps1
-python -m pip install -r requirements.txt
-python extract.py reports/report_11.pdf
-python scripts/evaluate.py --implementation extract --output results/new-run
-python scripts/report_results.py
-python -m unittest discover -v
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-On macOS/Linux activate with `source .venv/bin/activate`. Evaluation needs a new directory; comparison is offline. Default: `gemini-3.1-flash-lite`, 150 DPI. Set `GEMINI_MODEL=gemini-3.5-flash-lite` to switch. Only baseline needs Poppler. [Setup details](artifacts/RUNNING.md) include secure key prompting and reproduction.
+Using the environment's interpreter directly avoids PowerShell activation-policy issues.
 
-## Repository and documentation
+**3. Configure the key for this terminal**
 
-| Location | Purpose |
-|---|---|
-| [extract.py](extract.py) | Required CLI entry point; successful stdout is JSON, failures exit nonzero. |
-| [lab_extractor/](lab_extractor/) | [Documents](lab_extractor/documents.py), [Gemini pipeline](lab_extractor/pipeline.py), [Pydantic schemas](lab_extractor/schemas.py). |
-| [prompts/](prompts/) | Actual prompts; pipeline reads `final.txt` directly. |
-| [scripts/](scripts/) / [tests/](tests/) | Evaluation/comparison commands and regression checks. |
-| [baseline/](baseline/) | Unchanged starter implementation. |
-| [reports/](reports/) / [gold/](gold/) / [gold_audited/](gold_audited/) | Documents, original labels, separately audited labels. |
-| [results/](results/) / [schema.json](schema.json) | Saved measurements and the supplied output contract. |
+```powershell
+$geminiSecret = Read-Host "Gemini API key" -AsSecureString
+$env:GEMINI_API_KEY = [System.Net.NetworkCredential]::new("", $geminiSecret).Password
+```
 
-All supporting Markdown is in `artifacts/`: [brief](artifacts/brief.md), [original plan](artifacts/PLAN.original.md), [structured revision](artifacts/PLAN.md), [run instructions](artifacts/RUNNING.md), [evaluation protocol](artifacts/EVALUATION.md), [source audit](artifacts/AUDIT.md), [access/cost assumptions](artifacts/ACCESS.md), [prompts/rationale](artifacts/PROMPTS.md), and [run provenance](artifacts/RUNS.md).
+The hidden prompt keeps the key out of command history. Never commit credentials. Default model: `gemini-3.1-flash-lite`; optionally set `$env:GEMINI_MODEL = 'gemini-3.5-flash-lite'` before running.
+
+**4. Extract a report**
+
+```powershell
+.\.venv\Scripts\python.exe extract.py reports/report_11.pdf
+```
+
+Successful stdout contains `{"tests": [...]}` with each row's name, result, unit, and printed reference range. Absent units or ranges are null; failures exit nonzero.
+
+**Evaluate, reproduce the saved comparison, or run checks**
+
+```powershell
+.\.venv\Scripts\python.exe scripts/evaluate.py --implementation extract --output results/my-run
+.\.venv\Scripts\python.exe scripts/report_results.py
+.\.venv\Scripts\python.exe -m unittest discover -v
+```
+
+Evaluation makes API calls and requires a new output directory. Saved comparison and tests run offline without a key. Default PDF rendering is 150 DPI. See [detailed reproduction commands](artifacts/RUNNING.md).
 
 ## Evaluation and results
 
 Eight labelled reports contain **138 rows**. Frozen explicit name aliases align rows; correctness requires matching value, unit, and printed range. Normalize numeric formatting/whitespace while preserving comparators, qualitative meaning, nulls, and units. Missing/extra rows penalize strict-row F1. Four unlabelled reports are assessed separately.
+
+```mermaid
+xychart-beta
+    title "Before and after - original labels"
+    x-axis ["3.1 baseline", "3.1 final", "3.5 baseline", "3.5 final"]
+    y-axis "Strict row F1 (%)" 0 --> 100
+    bar [64.29, 99.28, 77.78, 99.28]
+```
+
+The chart shows **strict row F1**, not raw OCR accuracy. It covers the eight labelled reports; completion failures on unlabelled reports are reported separately below. Values come from [saved evaluation evidence](results/comparison.json).
 
 | Run/model | Original F1 | Audited F1 | Median seconds | Mean list USD/report | Failed reports |
 |---|---:|---:|---:|---:|---:|
@@ -72,3 +116,17 @@ The starter lacked a generation schema and used fragile JSON parsing. `LabReport
 **Fine-tuning:** eight imperfect labelled reports cannot establish generalization. Training cannot repair discarded pages or destructive coercion. Consider it with more audited diverse data, an independent evaluation set, and a recurring measured error target.
 
 **Multi-step agent:** evidence supports all-page input, constrained transcription, and validation. Extra passes add cost/failures. Test targeted review for ambiguous rows only if it improves independent quality at acceptable cost/latency.
+
+## Repository and documentation
+
+| Location | Purpose |
+|---|---|
+| [extract.py](extract.py) | Required CLI entry point; successful stdout is JSON, failures exit nonzero. |
+| [lab_extractor/](lab_extractor/) | [Documents](lab_extractor/documents.py), [Gemini pipeline](lab_extractor/pipeline.py), [Pydantic schemas](lab_extractor/schemas.py). |
+| [prompts/](prompts/) | Actual prompts; pipeline reads `final.txt` directly. |
+| [scripts/](scripts/) / [tests/](tests/) | Evaluation/comparison commands and regression checks. |
+| [baseline/](baseline/) | Unchanged starter implementation. |
+| [reports/](reports/) / [gold/](gold/) / [gold_audited/](gold_audited/) | Documents, original labels, separately audited labels. |
+| [results/](results/) / [schema.json](schema.json) | Saved measurements and the supplied output contract. |
+
+All supporting Markdown is in `artifacts/`: [brief](artifacts/brief.md), [original plan](artifacts/PLAN.original.md), [structured revision](artifacts/PLAN.md), [run instructions](artifacts/RUNNING.md), [evaluation protocol](artifacts/EVALUATION.md), [source audit](artifacts/AUDIT.md), [access/cost assumptions](artifacts/ACCESS.md), [prompts/rationale](artifacts/PROMPTS.md), and [run provenance](artifacts/RUNS.md).

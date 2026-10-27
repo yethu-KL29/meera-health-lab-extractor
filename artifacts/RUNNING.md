@@ -1,6 +1,42 @@
 # Detailed run instructions
 
-Use Python 3.11 or newer (tested 3.13). Pillow 13 requires 3.11, even though the original starter needed only 3.10. Install `requirements.txt` in a virtual environment. On Windows, activate with `.venv\Scripts\Activate.ps1`; on macOS/Linux use `source .venv/bin/activate`.
+Use Python 3.11 or newer (tested 3.13), Git, internet access, and a Gemini API key with model access. Pillow 13 requires 3.11, even though the original starter needed only 3.10. Start by cloning the repository:
+
+```sh
+git clone https://github.com/yethu-KL29/meera-health-lab-extractor.git
+cd meera-health-lab-extractor
+```
+
+## Windows PowerShell
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+$geminiSecret = Read-Host "Gemini API key" -AsSecureString
+$env:GEMINI_API_KEY = [System.Net.NetworkCredential]::new("", $geminiSecret).Password
+.\.venv\Scripts\python.exe extract.py reports/report_11.pdf
+```
+
+The key is entered at a hidden prompt. Calling the virtual environment's interpreter directly avoids changing PowerShell's script execution policy. For subsequent commands below, replace `python` with `.\.venv\Scripts\python.exe` if you have not activated the environment. To select the other tested model, run `$env:GEMINI_MODEL = 'gemini-3.5-flash-lite'` before starting Python.
+
+## macOS and Linux
+
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Set `GEMINI_API_KEY` through your normal local secret/environment setup. In **Bash** (start `bash` first if your shell is zsh), you can use a hidden prompt:
+
+```bash
+read -r -s -p "Gemini API key: " GEMINI_API_KEY
+printf '\n'
+export GEMINI_API_KEY
+python extract.py reports/report_11.pdf
+```
+
+## Credentials and smoke test
 
 Configure `GEMINI_API_KEY` through your normal local secret/environment setup. Never put credentials into tracked files or command history. The evaluator additionally supports an ignored `.env` with `GEMINI_API_KEY=...`; the extraction entry point reads environment variables only. A secure one-report smoke test prompts without saving the key:
 
@@ -8,7 +44,9 @@ Configure `GEMINI_API_KEY` through your normal local secret/environment setup. N
 python -c "import getpass, os, subprocess, sys; os.environ['GEMINI_API_KEY']=getpass.getpass('Gemini API key: '); sys.exit(subprocess.call([sys.executable, 'extract.py', 'reports/report_01.pdf']))"
 ```
 
-With the environment configured:
+## Evaluation and checks
+
+With the environment configured, the first command extracts one report, the second calls the model for all 12, and the third rescores those saved outputs with audited labels. The last two commands run offline without an API key:
 
 ```sh
 python extract.py reports/report_11.pdf
