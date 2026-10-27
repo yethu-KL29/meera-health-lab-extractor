@@ -1,7 +1,9 @@
 import json
 import io
+import runpy
 import unittest
 import urllib.error
+from contextlib import redirect_stdout
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,6 +16,17 @@ def response(result, finish='STOP'):
 
 
 class ExtractionTests(unittest.TestCase):
+    def test_required_cli_entry_point_prints_only_json(self):
+        result = {'tests': [dict(test_name='T4', value=10.9, unit='\u00b5g/dL', reference_range=None)]}
+        output = io.StringIO()
+        entry_point = Path(__file__).resolve().parents[1] / 'extract.py'
+        with patch('lab_extractor.pipeline.extract', return_value=result) as call, \
+             patch('sys.argv', ['extract.py', 'example.pdf']), redirect_stdout(output):
+            runpy.run_path(str(entry_point), run_name='__main__')
+        self.assertEqual(json.loads(output.getvalue()), result)
+        self.assertTrue(output.getvalue().isascii())
+        call.assert_called_once_with(Path('example.pdf'))
+
     def test_preserves_non_numeric_and_missing_results(self):
         values = ['Negative', 'Present (+)', '< 0.5', '2-3', '2,29,000', None, 0]
         data = {'tests': [dict(test_name='Example', value=v, unit=None, reference_range=None) for v in values]}

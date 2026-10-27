@@ -2,6 +2,8 @@
 
 All calls used the supplied reports; these are development results, not hidden-test scores. Credentials and request headers are excluded.
 
+Directory names in the table are relative to [results/](../results/). The runs labelled "final" below describe the first JSON-schema implementation; the newer Pydantic follow-up has separate directories and never overwrites those historical measurements.
+
 | Directory | Role |
 |---|---|
 | `baseline/` | Incomplete original-model attempt, interrupted before first extraction returned; metadata only, not scored. |
@@ -12,6 +14,9 @@ All calls used the supplied reports; these are development results, not hidden-t
 | `experiment-300dpi/` | Controlled higher-resolution experiment using the identical final extractor/model/prompt, with EXTRACT_DPI=300. |
 | `baseline-35-flash-lite/` | User-requested gemini-3.5-flash-lite comparison; unchanged baseline, 60 DPI, first page. |
 | `final-35-flash-lite/` | Same improved pipeline and scoring, gemini-3.5-flash-lite, 150 DPI, all pages. |
+| `final-pydantic-31/` | Pydantic-generated response schema and validation, reorganized package, unchanged prompt/scorer; gemini-3.1-flash-lite. |
+| `final-pydantic-35/` | Same Pydantic revision, gemini-3.5-flash-lite. |
+| `pydantic-31-report12-retry/` | Separate diagnostic retry of the 3.1 prescription control after two HTTP 503s. It returned an empty tests list; the failed full-run record is preserved. Not a labelled accuracy benchmark. |
 
 Each report JSON stores its prediction, measured end-to-end latency, response usage, and any terminal error. The later harness also records candidate responses, finish reasons, and HTTP errors; earlier runs do not have these details. `run.json` stores model, timestamp and source/scorer hashes; later runs additionally record rendering and prompt settings. No original measurement is replaced by a diagnostic rerun.
 
@@ -19,4 +24,12 @@ Each report JSON stores its prediction, measured end-to-end latency, response us
 
 Scoring functions and aliases were frozen in commit 30e363c. Later `scripts/evaluate.py` changes only extended run metadata, diagnostics and audit output filenames; matching/scoring semantics stayed unchanged. There are 30 baseline predictions that do not match the frozen name aliases; many are harmless expanded names. Thus the primary score gain includes improved source-name fidelity and should not all be interpreted as correction of clinically wrong values. Source-row evidence for page omissions, coerced values and invented ranges is reported separately in README.
 
-Measured final extraction behavior is from commit cf483cf. A later documentation-only edit corrected the extractor docstring to Python 3.11+ because pinned Pillow 13 requires it; the extraction logic is unchanged. The user-requested 3.5 Flash-Lite runs use this same logic with only GEMINI_MODEL changed. Both models use identical prompts, 150 DPI, and scoring.
+Historical final extraction behavior is from commit cf483cf. A subsequent documentation-only edit corrected the extractor docstring to Python 3.11+ because pinned Pillow 13 requires it. The first 3.5 Flash-Lite comparison uses that same logic with only GEMINI_MODEL changed.
+
+After the user requested a structured plan, Pydantic schemas, centralized prompts, and organized code, commit 547d121 introduced the package layout and generated response schema. New Pydantic runs capture the actual schema in `run.json` and hashes of all package modules, the prompt, entry point, and requirements. These measurements can be compared with historical runs, but a score difference does not isolate a Pydantic-specific effect: generation schema descriptions/structure changed, and service/model variability remains. All runs use the same frozen scoring functions and original/audited labels.
+
+Both Pydantic runs retained 99.28% original-label / 100% audited-label F1. 3.5 completed all 12 reports; 3.1 completed the 11 lab reports but failed the unlabelled prescription control after two HTTP 503s. No usage was returned for those failures, so full-run mean cost is unknown rather than zero. The 11 known successful responses average $0.001526; use per-report usage for the individual estimates. Do not splice the later successful retry into the full-run metrics. The diagnostic retry's aggregate F1 is zero because it contains no labelled reports; its purpose is to inspect the empty-list control and service recovery.
+
+The original pre-implementation plan remains verbatim at [PLAN.original.md](PLAN.original.md), with its first version in commit 1f85650. [PLAN.md](PLAN.md) is explicitly labelled as a later user-requested revision; no history was rewritten. The original [brief](brief.md) is archived verbatim and its starter paths describe the initial kit; use [RUNNING.md](RUNNING.md) for the current layout.
+
+After these model measurements, an actual CLI check from a different working directory exposed a Windows encoding issue: the micro symbol was printed in the local legacy encoding rather than UTF-8. The entry point now uses standard JSON ASCII escapes, preserving decoded values while making stdout valid JSON bytes across encodings. This changes CLI serialization only, not the measured model request, schema, pipeline, or predictions. A regression check covers non-ASCII units.

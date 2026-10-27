@@ -1,0 +1,21 @@
+{
+  "report": "report_12.jpg",
+  "prediction": null,
+  "usage": [],
+  "error": {
+    "type": "RuntimeError",
+    "http_status": null,
+    "message": "Gemini HTTP 503; check model access, key, or quota."
+  },
+  "responses": [
+    {
+      "error_type": "HTTPError",
+      "http_status": 503
+    },
+    {
+      "error_type": "HTTPError",
+      "http_status": 503
+    }
+  ],
+  "latency_seconds": 12.536
+}

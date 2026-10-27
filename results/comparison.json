@@ -5481,5 +5481,1140 @@
         "error": null
       }
     ]
+  },
+  "final-pydantic-31": {
+    "gold": {
+      "expected": 138,
+      "predicted": 138,
+      "matched": 138,
+      "fully_correct": 137,
+      "strict_row_f1": 0.9927536231884058,
+      "strict_row_precision": 0.9927536231884058,
+      "strict_row_recall": 0.9927536231884058,
+      "field_accuracy": {
+        "value": 0.9927536231884058,
+        "unit": 1.0,
+        "reference_range": 1.0
+      },
+      "per_report": [
+        {
+          "report": "report_01.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 13,
+          "field_correct": {
+            "value": 13,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [
+            {
+              "test_name": "Platelet Count",
+              "expected": {
+                "test_name": "Platelet Count",
+                "value": "304000",
+                "unit": "/cumm",
+                "reference_range": "150000 - 410000"
+              },
+              "actual": {
+                "test_name": "Platelet Count",
+                "value": 340000,
+                "unit": "/cumm",
+                "reference_range": "150000 - 410000"
+              },
+              "incorrect_fields": [
+                "value"
+              ]
+            }
+          ],
+          "extra_rows": []
+        },
+        {
+          "report": "report_02.pdf",
+          "expected": 16,
+          "predicted": 16,
+          "matched": 16,
+          "fully_correct": 16,
+          "field_correct": {
+            "value": 16,
+            "unit": 16,
+            "reference_range": 16
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_03.pdf",
+          "expected": 8,
+          "predicted": 8,
+          "matched": 8,
+          "fully_correct": 8,
+          "field_correct": {
+            "value": 8,
+            "unit": 8,
+            "reference_range": 8
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_05.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_06.pdf",
+          "expected": 12,
+          "predicted": 12,
+          "matched": 12,
+          "fully_correct": 12,
+          "field_correct": {
+            "value": 12,
+            "unit": 12,
+            "reference_range": 12
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_08.jpg",
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6,
+          "fully_correct": 6,
+          "field_correct": {
+            "value": 6,
+            "unit": 6,
+            "reference_range": 6
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_09.jpg",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_11.pdf",
+          "expected": 54,
+          "predicted": 54,
+          "matched": 54,
+          "fully_correct": 54,
+          "field_correct": {
+            "value": 54,
+            "unit": 54,
+            "reference_range": 54
+          },
+          "errors": [],
+          "extra_rows": []
+        }
+      ]
+    },
+    "gold_audited": {
+      "expected": 138,
+      "predicted": 138,
+      "matched": 138,
+      "fully_correct": 138,
+      "strict_row_f1": 1.0,
+      "strict_row_precision": 1.0,
+      "strict_row_recall": 1.0,
+      "field_accuracy": {
+        "value": 1.0,
+        "unit": 1.0,
+        "reference_range": 1.0
+      },
+      "per_report": [
+        {
+          "report": "report_01.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_02.pdf",
+          "expected": 16,
+          "predicted": 16,
+          "matched": 16,
+          "fully_correct": 16,
+          "field_correct": {
+            "value": 16,
+            "unit": 16,
+            "reference_range": 16
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_03.pdf",
+          "expected": 8,
+          "predicted": 8,
+          "matched": 8,
+          "fully_correct": 8,
+          "field_correct": {
+            "value": 8,
+            "unit": 8,
+            "reference_range": 8
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_05.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_06.pdf",
+          "expected": 12,
+          "predicted": 12,
+          "matched": 12,
+          "fully_correct": 12,
+          "field_correct": {
+            "value": 12,
+            "unit": 12,
+            "reference_range": 12
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_08.jpg",
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6,
+          "fully_correct": 6,
+          "field_correct": {
+            "value": 6,
+            "unit": 6,
+            "reference_range": 6
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_09.jpg",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_11.pdf",
+          "expected": 54,
+          "predicted": 54,
+          "matched": 54,
+          "fully_correct": 54,
+          "field_correct": {
+            "value": 54,
+            "unit": 54,
+            "reference_range": 54
+          },
+          "errors": [],
+          "extra_rows": []
+        }
+      ]
+    },
+    "model": "gemini-3.1-flash-lite",
+    "report_count": 12,
+    "failed_reports": 1,
+    "median_latency_seconds": 13.154499999999999,
+    "mean_latency_seconds": 15.153166666666667,
+    "mean_estimated_list_cost_usd": null,
+    "actual_spend_usd": null,
+    "per_report_usage": [
+      {
+        "report": "report_01.pdf",
+        "latency_seconds": 30.802,
+        "estimated_list_cost_usd": 0.0015175,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 769,
+            "totalTokenCount": 2225,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_02.pdf",
+        "latency_seconds": 32.359,
+        "estimated_list_cost_usd": 0.001666,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 868,
+            "totalTokenCount": 2324,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_03.pdf",
+        "latency_seconds": 4.181,
+        "estimated_list_cost_usd": 0.0010045,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 427,
+            "totalTokenCount": 1883,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_04.pdf",
+        "latency_seconds": 17.606,
+        "estimated_list_cost_usd": 0.001123,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 506,
+            "totalTokenCount": 1962,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_05.pdf",
+        "latency_seconds": 23.961,
+        "estimated_list_cost_usd": 0.001513,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 766,
+            "totalTokenCount": 2222,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_06.pdf",
+        "latency_seconds": 13.199,
+        "estimated_list_cost_usd": 0.0012445,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 587,
+            "totalTokenCount": 2043,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_07.pdf",
+        "latency_seconds": 12.475,
+        "estimated_list_cost_usd": 0.0012085,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 563,
+            "totalTokenCount": 2019,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_08.jpg",
+        "latency_seconds": 2.981,
+        "estimated_list_cost_usd": 0.00082675,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 309,
+            "totalTokenCount": 1762,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_09.jpg",
+        "latency_seconds": 13.11,
+        "estimated_list_cost_usd": 0.00153175,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 779,
+            "totalTokenCount": 2232,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_10.jpg",
+        "latency_seconds": 4.905,
+        "estimated_list_cost_usd": 0.00113425,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 514,
+            "totalTokenCount": 1967,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_11.pdf",
+        "latency_seconds": 13.723,
+        "estimated_list_cost_usd": 0.00401725,
+        "usage": [
+          {
+            "promptTokenCount": 2551,
+            "candidatesTokenCount": 2253,
+            "totalTokenCount": 4804,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 2184
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 367
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_12.jpg",
+        "latency_seconds": 12.536,
+        "estimated_list_cost_usd": null,
+        "usage": [],
+        "error": {
+          "type": "RuntimeError",
+          "http_status": null,
+          "message": "Gemini HTTP 503; check model access, key, or quota."
+        }
+      }
+    ]
+  },
+  "final-pydantic-35": {
+    "gold": {
+      "expected": 138,
+      "predicted": 138,
+      "matched": 138,
+      "fully_correct": 137,
+      "strict_row_f1": 0.9927536231884058,
+      "strict_row_precision": 0.9927536231884058,
+      "strict_row_recall": 0.9927536231884058,
+      "field_accuracy": {
+        "value": 0.9927536231884058,
+        "unit": 1.0,
+        "reference_range": 1.0
+      },
+      "per_report": [
+        {
+          "report": "report_01.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 13,
+          "field_correct": {
+            "value": 13,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [
+            {
+              "test_name": "Platelet Count",
+              "expected": {
+                "test_name": "Platelet Count",
+                "value": "304000",
+                "unit": "/cumm",
+                "reference_range": "150000 - 410000"
+              },
+              "actual": {
+                "test_name": "Platelet Count",
+                "value": 340000,
+                "unit": "/cumm",
+                "reference_range": "150000 - 410000"
+              },
+              "incorrect_fields": [
+                "value"
+              ]
+            }
+          ],
+          "extra_rows": []
+        },
+        {
+          "report": "report_02.pdf",
+          "expected": 16,
+          "predicted": 16,
+          "matched": 16,
+          "fully_correct": 16,
+          "field_correct": {
+            "value": 16,
+            "unit": 16,
+            "reference_range": 16
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_03.pdf",
+          "expected": 8,
+          "predicted": 8,
+          "matched": 8,
+          "fully_correct": 8,
+          "field_correct": {
+            "value": 8,
+            "unit": 8,
+            "reference_range": 8
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_05.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_06.pdf",
+          "expected": 12,
+          "predicted": 12,
+          "matched": 12,
+          "fully_correct": 12,
+          "field_correct": {
+            "value": 12,
+            "unit": 12,
+            "reference_range": 12
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_08.jpg",
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6,
+          "fully_correct": 6,
+          "field_correct": {
+            "value": 6,
+            "unit": 6,
+            "reference_range": 6
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_09.jpg",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_11.pdf",
+          "expected": 54,
+          "predicted": 54,
+          "matched": 54,
+          "fully_correct": 54,
+          "field_correct": {
+            "value": 54,
+            "unit": 54,
+            "reference_range": 54
+          },
+          "errors": [],
+          "extra_rows": []
+        }
+      ]
+    },
+    "gold_audited": {
+      "expected": 138,
+      "predicted": 138,
+      "matched": 138,
+      "fully_correct": 138,
+      "strict_row_f1": 1.0,
+      "strict_row_precision": 1.0,
+      "strict_row_recall": 1.0,
+      "field_accuracy": {
+        "value": 1.0,
+        "unit": 1.0,
+        "reference_range": 1.0
+      },
+      "per_report": [
+        {
+          "report": "report_01.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_02.pdf",
+          "expected": 16,
+          "predicted": 16,
+          "matched": 16,
+          "fully_correct": 16,
+          "field_correct": {
+            "value": 16,
+            "unit": 16,
+            "reference_range": 16
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_03.pdf",
+          "expected": 8,
+          "predicted": 8,
+          "matched": 8,
+          "fully_correct": 8,
+          "field_correct": {
+            "value": 8,
+            "unit": 8,
+            "reference_range": 8
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_05.pdf",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_06.pdf",
+          "expected": 12,
+          "predicted": 12,
+          "matched": 12,
+          "fully_correct": 12,
+          "field_correct": {
+            "value": 12,
+            "unit": 12,
+            "reference_range": 12
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_08.jpg",
+          "expected": 6,
+          "predicted": 6,
+          "matched": 6,
+          "fully_correct": 6,
+          "field_correct": {
+            "value": 6,
+            "unit": 6,
+            "reference_range": 6
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_09.jpg",
+          "expected": 14,
+          "predicted": 14,
+          "matched": 14,
+          "fully_correct": 14,
+          "field_correct": {
+            "value": 14,
+            "unit": 14,
+            "reference_range": 14
+          },
+          "errors": [],
+          "extra_rows": []
+        },
+        {
+          "report": "report_11.pdf",
+          "expected": 54,
+          "predicted": 54,
+          "matched": 54,
+          "fully_correct": 54,
+          "field_correct": {
+            "value": 54,
+            "unit": 54,
+            "reference_range": 54
+          },
+          "errors": [],
+          "extra_rows": []
+        }
+      ]
+    },
+    "model": "gemini-3.5-flash-lite",
+    "report_count": 12,
+    "failed_reports": 0,
+    "median_latency_seconds": 3.788,
+    "mean_latency_seconds": 3.9581666666666666,
+    "mean_estimated_list_cost_usd": 0.0023397083333333334,
+    "actual_spend_usd": null,
+    "per_report_usage": [
+      {
+        "report": "report_01.pdf",
+        "latency_seconds": 5.2,
+        "estimated_list_cost_usd": 0.0023593000000000004,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 769,
+            "totalTokenCount": 2225,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_02.pdf",
+        "latency_seconds": 4.602,
+        "estimated_list_cost_usd": 0.0026093,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 869,
+            "totalTokenCount": 2325,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_03.pdf",
+        "latency_seconds": 2.553,
+        "estimated_list_cost_usd": 0.0015042999999999999,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 427,
+            "totalTokenCount": 1883,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_04.pdf",
+        "latency_seconds": 2.733,
+        "estimated_list_cost_usd": 0.0017067999999999999,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 508,
+            "totalTokenCount": 1964,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_05.pdf",
+        "latency_seconds": 5.14,
+        "estimated_list_cost_usd": 0.0023518000000000002,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 766,
+            "totalTokenCount": 2222,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_06.pdf",
+        "latency_seconds": 3.523,
+        "estimated_list_cost_usd": 0.0019068,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 588,
+            "totalTokenCount": 2044,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_07.pdf",
+        "latency_seconds": 4.233,
+        "estimated_list_cost_usd": 0.0018442999999999999,
+        "usage": [
+          {
+            "promptTokenCount": 1456,
+            "candidatesTokenCount": 563,
+            "totalTokenCount": 2019,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 364
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_08.jpg",
+        "latency_seconds": 2.558,
+        "estimated_list_cost_usd": 0.0012084,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 309,
+            "totalTokenCount": 1762,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_09.jpg",
+        "latency_seconds": 3.812,
+        "estimated_list_cost_usd": 0.0023834,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 779,
+            "totalTokenCount": 2232,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_10.jpg",
+        "latency_seconds": 3.764,
+        "estimated_list_cost_usd": 0.0017209,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 514,
+            "totalTokenCount": 1967,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_11.pdf",
+        "latency_seconds": 6.76,
+        "estimated_list_cost_usd": 0.0080228,
+        "usage": [
+          {
+            "promptTokenCount": 2551,
+            "candidatesTokenCount": 2903,
+            "totalTokenCount": 5454,
+            "promptTokensDetails": [
+              {
+                "modality": "TEXT",
+                "tokenCount": 367
+              },
+              {
+                "modality": "IMAGE",
+                "tokenCount": 2184
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      },
+      {
+        "report": "report_12.jpg",
+        "latency_seconds": 2.62,
+        "estimated_list_cost_usd": 0.0004584,
+        "usage": [
+          {
+            "promptTokenCount": 1453,
+            "candidatesTokenCount": 9,
+            "totalTokenCount": 1462,
+            "promptTokensDetails": [
+              {
+                "modality": "IMAGE",
+                "tokenCount": 1092
+              },
+              {
+                "modality": "TEXT",
+                "tokenCount": 361
+              }
+            ],
+            "serviceTier": "standard"
+          }
+        ],
+        "error": null
+      }
+    ]
   }
 }

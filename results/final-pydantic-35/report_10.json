@@ -1,0 +1,101 @@
+{
+  "report": "report_10.jpg",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "T3",
+        "value": 177,
+        "unit": "ng/dL",
+        "reference_range": "80 - 200"
+      },
+      {
+        "test_name": "T4",
+        "value": 8.2,
+        "unit": "µg/dL",
+        "reference_range": "5.1 - 14.1"
+      },
+      {
+        "test_name": "TSH (Ultrasensitive)",
+        "value": 1.84,
+        "unit": "µIU/mL",
+        "reference_range": "0.27 - 4.20"
+      },
+      {
+        "test_name": "S. Urea",
+        "value": 9,
+        "unit": "mg/dL",
+        "reference_range": "15 - 40"
+      },
+      {
+        "test_name": "S. Creatinine",
+        "value": 0.85,
+        "unit": "mg/dL",
+        "reference_range": "0.70 - 1.30"
+      },
+      {
+        "test_name": "S. Uric Acid",
+        "value": 6.7,
+        "unit": "mg/dL",
+        "reference_range": "3.5 - 7.2"
+      },
+      {
+        "test_name": "S. Sodium",
+        "value": 138,
+        "unit": "mmol/L",
+        "reference_range": "136 - 146"
+      },
+      {
+        "test_name": "S. Potassium",
+        "value": 3.1,
+        "unit": "mmol/L",
+        "reference_range": "3.5 - 5.1"
+      },
+      {
+        "test_name": "S. Chloride",
+        "value": 109,
+        "unit": "mmol/L",
+        "reference_range": "98 - 107"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1453,
+      "candidatesTokenCount": 514,
+      "totalTokenCount": 1967,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 361
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"T3\",\n      \"value\": 177,\n      \"unit\": \"ng/dL\",\n      \"reference_range\": \"80 - 200\"\n    },\n    {\n      \"test_name\": \"T4\",\n      \"value\": 8.2,\n      \"unit\": \"µg/dL\",\n      \"reference_range\": \"5.1 - 14.1\"\n    },\n    {\n      \"test_name\": \"TSH (Ultrasensitive)\",\n      \"value\": 1.84,\n      \"unit\": \"µIU/mL\",\n      \"reference_range\": \"0.27 - 4.20\"\n    },\n    {\n      \"test_name\": \"S. Urea\",\n      \"value\": 9,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"15 - 40\"\n    },\n    {\n      \"test_name\": \"S. Creatinine\",\n      \"value\": 0.85,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.70 - 1.30\"\n    },\n    {\n      \"test_name\": \"S. Uric Acid\",\n      \"value\": 6.7,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"3.5 - 7.2\"\n    },\n    {\n      \"test_name\": \"S. Sodium\",\n      \"value\": 138,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"136 - 146\"\n    },\n    {\n      \"test_name\": \"S. Potassium\",\n      \"value\": 3.1,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"3.5 - 5.1\"\n    },\n    {\n      \"test_name\": \"S. Chloride\",\n      \"value\": 109,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"98 - 107\"\n    }\n  ]\n}",
+                "thoughtSignature": "EmAKXgFpFH0TwxyWfd6wQexYgQCIcwX3wK6sGq+WdBixCfojnpNUCtYzki1MbuHDe0Q4lBEyCjR3UewULqFX7lWc2AL6rU3p5YWdJZ3mZPSXe7s3UkkxnkkLAm95mjXb3kg="
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 3.764
+}

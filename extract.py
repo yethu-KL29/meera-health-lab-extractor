@@ -10,6 +10,7 @@ if __name__ == '__main__':
     if len(sys.argv) != 2:
         sys.exit(__doc__)
     try:
-        print(json.dumps(extract(Path(sys.argv[1])), ensure_ascii=False, allow_nan=False))
+        # ASCII escapes keep JSON portable on Windows consoles with legacy encodings.
+        print(json.dumps(extract(Path(sys.argv[1])), allow_nan=False))
     except (RuntimeError, OSError) as error:
         sys.exit(str(error))

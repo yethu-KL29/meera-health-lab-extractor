@@ -1,0 +1,1687 @@
+{
+  "expected": 138,
+  "predicted": 138,
+  "matched": 138,
+  "fully_correct": 137,
+  "strict_row_precision": 0.9927536231884058,
+  "strict_row_recall": 0.9927536231884058,
+  "strict_row_f1": 0.9927536231884058,
+  "field_accuracy": {
+    "value": 0.9927536231884058,
+    "unit": 1.0,
+    "reference_range": 1.0
+  },
+  "failed_reports": 1,
+  "median_latency_seconds": 13.154499999999999,
+  "reports": [
+    {
+      "report": "report_01.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Haemoglobin",
+            "value": 13.5,
+            "unit": "g/dL",
+            "reference_range": "13.0 - 17.0"
+          },
+          {
+            "test_name": "Total RBC Count",
+            "value": 5.71,
+            "unit": "mill/cumm",
+            "reference_range": "4.50 - 5.50"
+          },
+          {
+            "test_name": "Packed Cell Volume (PCV)",
+            "value": 48.8,
+            "unit": "%",
+            "reference_range": "40.0 - 50.0"
+          },
+          {
+            "test_name": "MCV",
+            "value": 77.9,
+            "unit": "fL",
+            "reference_range": "83.0 - 101.0"
+          },
+          {
+            "test_name": "MCH",
+            "value": 27.9,
+            "unit": "pg",
+            "reference_range": "27.0 - 32.0"
+          },
+          {
+            "test_name": "MCHC",
+            "value": 34.2,
+            "unit": "g/dL",
+            "reference_range": "31.5 - 34.5"
+          },
+          {
+            "test_name": "RDW-CV",
+            "value": 12.2,
+            "unit": "%",
+            "reference_range": "11.6 - 14.0"
+          },
+          {
+            "test_name": "Total WBC Count",
+            "value": 9200,
+            "unit": "/cumm",
+            "reference_range": "4000 - 10000"
+          },
+          {
+            "test_name": "Neutrophils",
+            "value": 73,
+            "unit": "%",
+            "reference_range": "40 - 80"
+          },
+          {
+            "test_name": "Lymphocytes",
+            "value": 33,
+            "unit": "%",
+            "reference_range": "20 - 40"
+          },
+          {
+            "test_name": "Eosinophils",
+            "value": 0,
+            "unit": "%",
+            "reference_range": "1 - 6"
+          },
+          {
+            "test_name": "Monocytes",
+            "value": 8,
+            "unit": "%",
+            "reference_range": "2 - 10"
+          },
+          {
+            "test_name": "Basophils",
+            "value": 1,
+            "unit": "%",
+            "reference_range": "0 - 2"
+          },
+          {
+            "test_name": "Platelet Count",
+            "value": 340000,
+            "unit": "/cumm",
+            "reference_range": "150000 - 410000"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 769,
+          "totalTokenCount": 2225,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "error_type": "HTTPError",
+          "http_status": 503
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Haemoglobin\",\n      \"value\": 13.5,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"13.0 - 17.0\"\n    },\n    {\n      \"test_name\": \"Total RBC Count\",\n      \"value\": 5.71,\n      \"unit\": \"mill/cumm\",\n      \"reference_range\": \"4.50 - 5.50\"\n    },\n    {\n      \"test_name\": \"Packed Cell Volume (PCV)\",\n      \"value\": 48.8,\n      \"unit\": \"%\",\n      \"reference_range\": \"40.0 - 50.0\"\n    },\n    {\n      \"test_name\": \"MCV\",\n      \"value\": 77.9,\n      \"unit\": \"fL\",\n      \"reference_range\": \"83.0 - 101.0\"\n    },\n    {\n      \"test_name\": \"MCH\",\n      \"value\": 27.9,\n      \"unit\": \"pg\",\n      \"reference_range\": \"27.0 - 32.0\"\n    },\n    {\n      \"test_name\": \"MCHC\",\n      \"value\": 34.2,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"31.5 - 34.5\"\n    },\n    {\n      \"test_name\": \"RDW-CV\",\n      \"value\": 12.2,\n      \"unit\": \"%\",\n      \"reference_range\": \"11.6 - 14.0\"\n    },\n    {\n      \"test_name\": \"Total WBC Count\",\n      \"value\": 9200,\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"4000 - 10000\"\n    },\n    {\n      \"test_name\": \"Neutrophils\",\n      \"value\": 73,\n      \"unit\": \"%\",\n      \"reference_range\": \"40 - 80\"\n    },\n    {\n      \"test_name\": \"Lymphocytes\",\n      \"value\": 33,\n      \"unit\": \"%\",\n      \"reference_range\": \"20 - 40\"\n    },\n    {\n      \"test_name\": \"Eosinophils\",\n      \"value\": 0,\n      \"unit\": \"%\",\n      \"reference_range\": \"1 - 6\"\n    },\n    {\n      \"test_name\": \"Monocytes\",\n      \"value\": 8,\n      \"unit\": \"%\",\n      \"reference_range\": \"2 - 10\"\n    },\n    {\n      \"test_name\": \"Basophils\",\n      \"value\": 1,\n      \"unit\": \"%\",\n      \"reference_range\": \"0 - 2\"\n    },\n    {\n      \"test_name\": \"Platelet Count\",\n      \"value\": 340000,\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"150000 - 410000\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0Tqdm+shrxqpPR5AEQqIJuZY/ymz0PQcBOOlaB0zfwKBFHTYtfyFCpl0tnTQoP/waOhU4KGe64gXQE9dFOWhB0QzQhSf12jysmvgrPp34KQDnoWw8gozJZIcIg04bjUtUOYAHCCBFoQt6mfe3b"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 30.802,
+      "score": {
+        "expected": 14,
+        "predicted": 14,
+        "matched": 14,
+        "fully_correct": 13,
+        "field_correct": {
+          "value": 13,
+          "unit": 14,
+          "reference_range": 14
+        },
+        "errors": [
+          {
+            "test_name": "Platelet Count",
+            "expected": {
+              "test_name": "Platelet Count",
+              "value": "304000",
+              "unit": "/cumm",
+              "reference_range": "150000 - 410000"
+            },
+            "actual": {
+              "test_name": "Platelet Count",
+              "value": 340000,
+              "unit": "/cumm",
+              "reference_range": "150000 - 410000"
+            },
+            "incorrect_fields": [
+              "value"
+            ]
+          }
+        ],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_02.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Cholesterol - Total",
+            "value": 179,
+            "unit": "mg/dL",
+            "reference_range": "< 200"
+          },
+          {
+            "test_name": "Serum Triglycerides",
+            "value": 91,
+            "unit": "mg/dL",
+            "reference_range": "< 150"
+          },
+          {
+            "test_name": "Cholesterol - HDL",
+            "value": 36,
+            "unit": "mg/dL",
+            "reference_range": "> 40"
+          },
+          {
+            "test_name": "Cholesterol - LDL",
+            "value": 121,
+            "unit": "mg/dL",
+            "reference_range": "< 100"
+          },
+          {
+            "test_name": "Cholesterol - VLDL",
+            "value": 21,
+            "unit": "mg/dL",
+            "reference_range": "< 30"
+          },
+          {
+            "test_name": "TC/HDL Ratio",
+            "value": 5.6,
+            "unit": null,
+            "reference_range": "< 5.0"
+          },
+          {
+            "test_name": "Total Bilirubin",
+            "value": 1.06,
+            "unit": "mg/dL",
+            "reference_range": "0.30 - 1.20"
+          },
+          {
+            "test_name": "Direct Bilirubin",
+            "value": 0.2,
+            "unit": "mg/dL",
+            "reference_range": "0.00 - 0.30"
+          },
+          {
+            "test_name": "Indirect Bilirubin",
+            "value": 0.44,
+            "unit": "mg/dL",
+            "reference_range": "0.20 - 0.90"
+          },
+          {
+            "test_name": "Aspartate Aminotransferase",
+            "value": 50,
+            "unit": "U/L",
+            "reference_range": "5 - 40"
+          },
+          {
+            "test_name": "Alanine Aminotransferase",
+            "value": 2,
+            "unit": "U/L",
+            "reference_range": "5 - 45"
+          },
+          {
+            "test_name": "ALP",
+            "value": 118,
+            "unit": "U/L",
+            "reference_range": "40 - 129"
+          },
+          {
+            "test_name": "Protein Total",
+            "value": 7.1,
+            "unit": "g/dL",
+            "reference_range": "6.4 - 8.3"
+          },
+          {
+            "test_name": "Serum Albumin",
+            "value": 4.9,
+            "unit": "g/dL",
+            "reference_range": "3.5 - 5.2"
+          },
+          {
+            "test_name": "Serum Globulin",
+            "value": 2.5,
+            "unit": "g/dL",
+            "reference_range": "2.0 - 3.5"
+          },
+          {
+            "test_name": "Albumin/Globulin Ratio",
+            "value": 2.3,
+            "unit": null,
+            "reference_range": "1.0 - 2.1"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 868,
+          "totalTokenCount": 2324,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Cholesterol - Total\",\n      \"value\": 179,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 200\"\n    },\n    {\n      \"test_name\": \"Serum Triglycerides\",\n      \"value\": 91,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 150\"\n    },\n    {\n      \"test_name\": \"Cholesterol - HDL\",\n      \"value\": 36,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"> 40\"\n    },\n    {\n      \"test_name\": \"Cholesterol - LDL\",\n      \"value\": 121,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 100\"\n    },\n    {\n      \"test_name\": \"Cholesterol - VLDL\",\n      \"value\": 21,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 30\"\n    },\n    {\n      \"test_name\": \"TC/HDL Ratio\",\n      \"value\": 5.6,\n      \"unit\": null,\n      \"reference_range\": \"< 5.0\"\n    },\n    {\n      \"test_name\": \"Total Bilirubin\",\n      \"value\": 1.06,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.30 - 1.20\"\n    },\n    {\n      \"test_name\": \"Direct Bilirubin\",\n      \"value\": 0.2,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.00 - 0.30\"\n    },\n    {\n      \"test_name\": \"Indirect Bilirubin\",\n      \"value\": 0.44,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.20 - 0.90\"\n    },\n    {\n      \"test_name\": \"Aspartate Aminotransferase\",\n      \"value\": 50,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"5 - 40\"\n    },\n    {\n      \"test_name\": \"Alanine Aminotransferase\",\n      \"value\": 2,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"5 - 45\"\n    },\n    {\n      \"test_name\": \"ALP\",\n      \"value\": 118,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"40 - 129\"\n    },\n    {\n      \"test_name\": \"Protein Total\",\n      \"value\": 7.1,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"6.4 - 8.3\"\n    },\n    {\n      \"test_name\": \"Serum Albumin\",\n      \"value\": 4.9,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"3.5 - 5.2\"\n    },\n    {\n      \"test_name\": \"Serum Globulin\",\n      \"value\": 2.5,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"2.0 - 3.5\"\n    },\n    {\n      \"test_name\": \"Albumin/Globulin Ratio\",\n      \"value\": 2.3,\n      \"unit\": null,\n      \"reference_range\": \"1.0 - 2.1\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TuizcpQnkmL9gp4hLVCpTVBdBoOut/Y6OQYT7GjvdnbMVqYFqU2tg0bjN6+RYbx7QGnn/1H6zP2lRma2csBM/C4UXWE662NZ68mS/UqpQoRLPlAW84zdB6zFogAS2zrHv7Jmv6o1K74BsjiEG"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 32.359,
+      "score": {
+        "expected": 16,
+        "predicted": 16,
+        "matched": 16,
+        "fully_correct": 16,
+        "field_correct": {
+          "value": 16,
+          "unit": 16,
+          "reference_range": 16
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_03.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "T3",
+            "value": 179,
+            "unit": "ng/dL",
+            "reference_range": null
+          },
+          {
+            "test_name": "T4",
+            "value": 10.9,
+            "unit": "µg/dL",
+            "reference_range": null
+          },
+          {
+            "test_name": "TSH (Ultrasensitive)",
+            "value": 2.49,
+            "unit": "µIU/mL",
+            "reference_range": "0.27 - 4.20"
+          },
+          {
+            "test_name": "Vit D Total",
+            "value": 58.9,
+            "unit": "ng/mL",
+            "reference_range": "30.0 - 100.0"
+          },
+          {
+            "test_name": "Vit B12",
+            "value": 359,
+            "unit": "pg/mL",
+            "reference_range": "197 - 771"
+          },
+          {
+            "test_name": "Glycated Hb",
+            "value": 6.0,
+            "unit": "%",
+            "reference_range": null
+          },
+          {
+            "test_name": "FBS",
+            "value": 88,
+            "unit": "mg/dL",
+            "reference_range": "70 - 100"
+          },
+          {
+            "test_name": "PPBS",
+            "value": 95,
+            "unit": "mg/dL",
+            "reference_range": "70 - 140"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 427,
+          "totalTokenCount": 1883,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"T3\",\n      \"value\": 179,\n      \"unit\": \"ng/dL\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"T4\",\n      \"value\": 10.9,\n      \"unit\": \"µg/dL\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"TSH (Ultrasensitive)\",\n      \"value\": 2.49,\n      \"unit\": \"µIU/mL\",\n      \"reference_range\": \"0.27 - 4.20\"\n    },\n    {\n      \"test_name\": \"Vit D Total\",\n      \"value\": 58.9,\n      \"unit\": \"ng/mL\",\n      \"reference_range\": \"30.0 - 100.0\"\n    },\n    {\n      \"test_name\": \"Vit B12\",\n      \"value\": 359,\n      \"unit\": \"pg/mL\",\n      \"reference_range\": \"197 - 771\"\n    },\n    {\n      \"test_name\": \"Glycated Hb\",\n      \"value\": 6.0,\n      \"unit\": \"%\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"FBS\",\n      \"value\": 88,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 100\"\n    },\n    {\n      \"test_name\": \"PPBS\",\n      \"value\": 95,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 140\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TiUHHYXjqyLZIuKMhsA4NwbpStPgc06/582VXOLuZAGDVUwvC1cGCZNpN7x+kybETpqgfbVt6CvF48OMAL6JarUoQ/xR6J373ehxjFkuPnyzPs7LLZAwmpl/Q2gv22nJAzuesuBNUINYhu4mE"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 4.181,
+      "score": {
+        "expected": 8,
+        "predicted": 8,
+        "matched": 8,
+        "fully_correct": 8,
+        "field_correct": {
+          "value": 8,
+          "unit": 8,
+          "reference_range": 8
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_04.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Urea",
+            "value": 26,
+            "unit": "mg/dL",
+            "reference_range": "15 - 40"
+          },
+          {
+            "test_name": "Creatinine",
+            "value": 1.0,
+            "unit": "mg/dL",
+            "reference_range": "0.70 - 1.30"
+          },
+          {
+            "test_name": "Serum Uric Acid",
+            "value": 5.1,
+            "unit": "mg/dL",
+            "reference_range": "3.5 - 7.2"
+          },
+          {
+            "test_name": "Sodium (Na+)",
+            "value": 140,
+            "unit": "mmol/L",
+            "reference_range": "136 - 146"
+          },
+          {
+            "test_name": "Potassium (K+)",
+            "value": 3.8,
+            "unit": "mmol/L",
+            "reference_range": "3.5 - 5.1"
+          },
+          {
+            "test_name": "Chloride (Cl-)",
+            "value": 104,
+            "unit": "mmol/L",
+            "reference_range": "98 - 107"
+          },
+          {
+            "test_name": "Glycosylated Haemoglobin (HbA1c)",
+            "value": 4.6,
+            "unit": "%",
+            "reference_range": "< 5.7"
+          },
+          {
+            "test_name": "Glucose - Fasting",
+            "value": 93,
+            "unit": "mg/dL",
+            "reference_range": "70 - 100"
+          },
+          {
+            "test_name": "Glucose - PP",
+            "value": 78,
+            "unit": "mg/dL",
+            "reference_range": "70 - 140"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 506,
+          "totalTokenCount": 1962,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Urea\",\n      \"value\": 26,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"15 - 40\"\n    },\n    {\n      \"test_name\": \"Creatinine\",\n      \"value\": 1.0,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.70 - 1.30\"\n    },\n    {\n      \"test_name\": \"Serum Uric Acid\",\n      \"value\": 5.1,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"3.5 - 7.2\"\n    },\n    {\n      \"test_name\": \"Sodium (Na+)\",\n      \"value\": 140,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"136 - 146\"\n    },\n    {\n      \"test_name\": \"Potassium (K+)\",\n      \"value\": 3.8,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"3.5 - 5.1\"\n    },\n    {\n      \"test_name\": \"Chloride (Cl-)\",\n      \"value\": 104,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"98 - 107\"\n    },\n    {\n      \"test_name\": \"Glycosylated Haemoglobin (HbA1c)\",\n      \"value\": 4.6,\n      \"unit\": \"%\",\n      \"reference_range\": \"< 5.7\"\n    },\n    {\n      \"test_name\": \"Glucose - Fasting\",\n      \"value\": 93,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 100\"\n    },\n    {\n      \"test_name\": \"Glucose - PP\",\n      \"value\": 78,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 140\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TD5fWRTuLxUQ3LAQKUjE63TNfviYKlbNfror6VOZTHzeMxA0zUsm6tlbJVSFQYPbQ9Ws+kqRkyxY6goTTlSabPSj83h20z02z6Cf0lFaUPjCnTgemiDjIu3c/1bZ7MvfKGMgcUwPdO66+qlxP"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 17.606
+    },
+    {
+      "report": "report_05.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Haemoglobin",
+            "value": 11.9,
+            "unit": "g/dL",
+            "reference_range": "13.0 - 17.0"
+          },
+          {
+            "test_name": "Total RBC Count",
+            "value": 5.83,
+            "unit": "mill/cumm",
+            "reference_range": "4.50 - 5.50"
+          },
+          {
+            "test_name": "Packed Cell Volume (PCV)",
+            "value": 45.9,
+            "unit": "%",
+            "reference_range": "40.0 - 50.0"
+          },
+          {
+            "test_name": "MCV",
+            "value": 94.9,
+            "unit": "fL",
+            "reference_range": "83.0 - 101.0"
+          },
+          {
+            "test_name": "MCH",
+            "value": 28.3,
+            "unit": "pg",
+            "reference_range": "27.0 - 32.0"
+          },
+          {
+            "test_name": "MCHC",
+            "value": 33.5,
+            "unit": "g/dL",
+            "reference_range": "31.5 - 34.5"
+          },
+          {
+            "test_name": "RDW-CV",
+            "value": 13.6,
+            "unit": "%",
+            "reference_range": "11.6 - 14.0"
+          },
+          {
+            "test_name": "Total WBC Count",
+            "value": 2800,
+            "unit": "/cumm",
+            "reference_range": "4000 - 10000"
+          },
+          {
+            "test_name": "Neutrophils",
+            "value": 32,
+            "unit": "%",
+            "reference_range": "40 - 80"
+          },
+          {
+            "test_name": "Lymphocytes",
+            "value": 16,
+            "unit": "%",
+            "reference_range": "20 - 40"
+          },
+          {
+            "test_name": "Eosinophils",
+            "value": 5,
+            "unit": "%",
+            "reference_range": "1 - 6"
+          },
+          {
+            "test_name": "Monocytes",
+            "value": 6,
+            "unit": "%",
+            "reference_range": "2 - 10"
+          },
+          {
+            "test_name": "Basophils",
+            "value": 2,
+            "unit": "%",
+            "reference_range": "0 - 2"
+          },
+          {
+            "test_name": "Platelet Count",
+            "value": 3.03,
+            "unit": "lakh/cumm",
+            "reference_range": "1.50 - 4.10"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 766,
+          "totalTokenCount": 2222,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Haemoglobin\",\n      \"value\": 11.9,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"13.0 - 17.0\"\n    },\n    {\n      \"test_name\": \"Total RBC Count\",\n      \"value\": 5.83,\n      \"unit\": \"mill/cumm\",\n      \"reference_range\": \"4.50 - 5.50\"\n    },\n    {\n      \"test_name\": \"Packed Cell Volume (PCV)\",\n      \"value\": 45.9,\n      \"unit\": \"%\",\n      \"reference_range\": \"40.0 - 50.0\"\n    },\n    {\n      \"test_name\": \"MCV\",\n      \"value\": 94.9,\n      \"unit\": \"fL\",\n      \"reference_range\": \"83.0 - 101.0\"\n    },\n    {\n      \"test_name\": \"MCH\",\n      \"value\": 28.3,\n      \"unit\": \"pg\",\n      \"reference_range\": \"27.0 - 32.0\"\n    },\n    {\n      \"test_name\": \"MCHC\",\n      \"value\": 33.5,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"31.5 - 34.5\"\n    },\n    {\n      \"test_name\": \"RDW-CV\",\n      \"value\": 13.6,\n      \"unit\": \"%\",\n      \"reference_range\": \"11.6 - 14.0\"\n    },\n    {\n      \"test_name\": \"Total WBC Count\",\n      \"value\": 2800,\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"4000 - 10000\"\n    },\n    {\n      \"test_name\": \"Neutrophils\",\n      \"value\": 32,\n      \"unit\": \"%\",\n      \"reference_range\": \"40 - 80\"\n    },\n    {\n      \"test_name\": \"Lymphocytes\",\n      \"value\": 16,\n      \"unit\": \"%\",\n      \"reference_range\": \"20 - 40\"\n    },\n    {\n      \"test_name\": \"Eosinophils\",\n      \"value\": 5,\n      \"unit\": \"%\",\n      \"reference_range\": \"1 - 6\"\n    },\n    {\n      \"test_name\": \"Monocytes\",\n      \"value\": 6,\n      \"unit\": \"%\",\n      \"reference_range\": \"2 - 10\"\n    },\n    {\n      \"test_name\": \"Basophils\",\n      \"value\": 2,\n      \"unit\": \"%\",\n      \"reference_range\": \"0 - 2\"\n    },\n    {\n      \"test_name\": \"Platelet Count\",\n      \"value\": 3.03,\n      \"unit\": \"lakh/cumm\",\n      \"reference_range\": \"1.50 - 4.10\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0T4gY1qv+pH27oKX2dbQ9/VpYb6lGNromGBeMYqP7/m7eb/iJONqjTkbQIb9tGskTU/OgW6pLOOG40dbNwlPlNvc+SXdkXyj9g1B/7CJ5aM1CyOch5MXZxHILBERQgzYr7xBgFap6A2B4dAr4/"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 23.961,
+      "score": {
+        "expected": 14,
+        "predicted": 14,
+        "matched": 14,
+        "fully_correct": 14,
+        "field_correct": {
+          "value": 14,
+          "unit": 14,
+          "reference_range": 14
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_06.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Colour",
+            "value": "Dark Yellow",
+            "unit": null,
+            "reference_range": "Pale Yellow"
+          },
+          {
+            "test_name": "Clarity",
+            "value": "Clear",
+            "unit": null,
+            "reference_range": "Clear"
+          },
+          {
+            "test_name": "pH",
+            "value": 6.5,
+            "unit": null,
+            "reference_range": "5.0 - 8.0"
+          },
+          {
+            "test_name": "Specific Gravity",
+            "value": 1.02,
+            "unit": null,
+            "reference_range": "1.005 - 1.030"
+          },
+          {
+            "test_name": "Albumin",
+            "value": "Negative",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Sugar",
+            "value": "Present (+)",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Ketones",
+            "value": "Negative",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Leucocytes",
+            "value": "2-3",
+            "unit": "/hpf",
+            "reference_range": "0 - 5"
+          },
+          {
+            "test_name": "Erythrocytes",
+            "value": "1-2",
+            "unit": "/hpf",
+            "reference_range": "Nil"
+          },
+          {
+            "test_name": "Squamous Epithelial Cells",
+            "value": "1-2",
+            "unit": "/hpf",
+            "reference_range": "0 - 5"
+          },
+          {
+            "test_name": "CRP",
+            "value": "< 0.5",
+            "unit": "mg/L",
+            "reference_range": "< 5.0"
+          },
+          {
+            "test_name": "E.S.R. (Westergren)",
+            "value": 13,
+            "unit": "mm/hr",
+            "reference_range": "0 - 15"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 587,
+          "totalTokenCount": 2043,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "error_type": "HTTPError",
+          "http_status": 503
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Colour\",\n      \"value\": \"Dark Yellow\",\n      \"unit\": null,\n      \"reference_range\": \"Pale Yellow\"\n    },\n    {\n      \"test_name\": \"Clarity\",\n      \"value\": \"Clear\",\n      \"unit\": null,\n      \"reference_range\": \"Clear\"\n    },\n    {\n      \"test_name\": \"pH\",\n      \"value\": 6.5,\n      \"unit\": null,\n      \"reference_range\": \"5.0 - 8.0\"\n    },\n    {\n      \"test_name\": \"Specific Gravity\",\n      \"value\": 1.02,\n      \"unit\": null,\n      \"reference_range\": \"1.005 - 1.030\"\n    },\n    {\n      \"test_name\": \"Albumin\",\n      \"value\": \"Negative\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Sugar\",\n      \"value\": \"Present (+)\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Ketones\",\n      \"value\": \"Negative\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Leucocytes\",\n      \"value\": \"2-3\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"0 - 5\"\n    },\n    {\n      \"test_name\": \"Erythrocytes\",\n      \"value\": \"1-2\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"Nil\"\n    },\n    {\n      \"test_name\": \"Squamous Epithelial Cells\",\n      \"value\": \"1-2\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"0 - 5\"\n    },\n    {\n      \"test_name\": \"CRP\",\n      \"value\": \"< 0.5\",\n      \"unit\": \"mg/L\",\n      \"reference_range\": \"< 5.0\"\n    },\n    {\n      \"test_name\": \"E.S.R. (Westergren)\",\n      \"value\": 13,\n      \"unit\": \"mm/hr\",\n      \"reference_range\": \"0 - 15\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0Tgg5fjE7fdx8opSQ2AP46D1SCPWDRKWRiNX+tjjif5JIxfmclcU8SQVkDivVxr4jbpCA7Esex70scKUI2bW0Ej+7nT1baEmUZF1xoRMiAgGEvWOTkV5HHL3H2DQ35HLCkW40f549vX1Ji6fgB"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 13.199,
+      "score": {
+        "expected": 12,
+        "predicted": 12,
+        "matched": 12,
+        "fully_correct": 12,
+        "field_correct": {
+          "value": 12,
+          "unit": 12,
+          "reference_range": 12
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_07.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Total Bilirubin",
+            "value": 0.16,
+            "unit": "mg/dL",
+            "reference_range": "0.30 - 1.20"
+          },
+          {
+            "test_name": "Direct Bilirubin",
+            "value": 0.23,
+            "unit": "mg/dL",
+            "reference_range": "0.00 - 0.30"
+          },
+          {
+            "test_name": "Indirect Bilirubin",
+            "value": 0.62,
+            "unit": "mg/dL",
+            "reference_range": "0.20 - 0.90"
+          },
+          {
+            "test_name": "Aspartate Aminotransferase",
+            "value": 2,
+            "unit": "U/L",
+            "reference_range": "5 - 40"
+          },
+          {
+            "test_name": "Alanine Aminotransferase",
+            "value": 55,
+            "unit": "U/L",
+            "reference_range": "5 - 45"
+          },
+          {
+            "test_name": "ALP",
+            "value": 26,
+            "unit": "U/L",
+            "reference_range": "40 - 129"
+          },
+          {
+            "test_name": "Protein Total",
+            "value": 7.7,
+            "unit": "g/dL",
+            "reference_range": "6.4 - 8.3"
+          },
+          {
+            "test_name": "Serum Albumin",
+            "value": 4.4,
+            "unit": "g/dL",
+            "reference_range": "3.5 - 5.2"
+          },
+          {
+            "test_name": "Serum Globulin",
+            "value": 3.1,
+            "unit": "g/dL",
+            "reference_range": "2.0 - 3.5"
+          },
+          {
+            "test_name": "Albumin/Globulin Ratio",
+            "value": 1.2,
+            "unit": null,
+            "reference_range": "1.0 - 2.1"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1456,
+          "candidatesTokenCount": 563,
+          "totalTokenCount": 2019,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 364
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "error_type": "HTTPError",
+          "http_status": 503
+        },
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Total Bilirubin\",\n      \"value\": 0.16,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.30 - 1.20\"\n    },\n    {\n      \"test_name\": \"Direct Bilirubin\",\n      \"value\": 0.23,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.00 - 0.30\"\n    },\n    {\n      \"test_name\": \"Indirect Bilirubin\",\n      \"value\": 0.62,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.20 - 0.90\"\n    },\n    {\n      \"test_name\": \"Aspartate Aminotransferase\",\n      \"value\": 2,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"5 - 40\"\n    },\n    {\n      \"test_name\": \"Alanine Aminotransferase\",\n      \"value\": 55,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"5 - 45\"\n    },\n    {\n      \"test_name\": \"ALP\",\n      \"value\": 26,\n      \"unit\": \"U/L\",\n      \"reference_range\": \"40 - 129\"\n    },\n    {\n      \"test_name\": \"Protein Total\",\n      \"value\": 7.7,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"6.4 - 8.3\"\n    },\n    {\n      \"test_name\": \"Serum Albumin\",\n      \"value\": 4.4,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"3.5 - 5.2\"\n    },\n    {\n      \"test_name\": \"Serum Globulin\",\n      \"value\": 3.1,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"2.0 - 3.5\"\n    },\n    {\n      \"test_name\": \"Albumin/Globulin Ratio\",\n      \"value\": 1.2,\n      \"unit\": null,\n      \"reference_range\": \"1.0 - 2.1\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0Tix0e1ZqCkALoUFAhvTgmbmrzMnsqzFygLj6QHjLgdC4BHLccymo/NT/PxNs+cJ7pUvlRI9v/h/GhxW41aLDaU7vo9y5sUf91jnj7tn0wRYb09ZS0J8/G+mq8NC/gHbUUXIsBZ0XpVktixGCW"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 12.475
+    },
+    {
+      "report": "report_08.jpg",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "S. Cholesterol",
+            "value": 155,
+            "unit": "mg/dL",
+            "reference_range": "< 200"
+          },
+          {
+            "test_name": "TG",
+            "value": 106,
+            "unit": "mg/dL",
+            "reference_range": "< 150"
+          },
+          {
+            "test_name": "HDL-C",
+            "value": 60,
+            "unit": "mg/dL",
+            "reference_range": "> 40"
+          },
+          {
+            "test_name": "LDL-C (Direct)",
+            "value": 73,
+            "unit": "mg/dL",
+            "reference_range": "< 100"
+          },
+          {
+            "test_name": "VLDL",
+            "value": 23,
+            "unit": "mg/dL",
+            "reference_range": "< 30"
+          },
+          {
+            "test_name": "Chol/HDL",
+            "value": 4.3,
+            "unit": null,
+            "reference_range": "< 5.0"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1453,
+          "candidatesTokenCount": 309,
+          "totalTokenCount": 1762,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 361
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"S. Cholesterol\",\n      \"value\": 155,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 200\"\n    },\n    {\n      \"test_name\": \"TG\",\n      \"value\": 106,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 150\"\n    },\n    {\n      \"test_name\": \"HDL-C\",\n      \"value\": 60,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"> 40\"\n    },\n    {\n      \"test_name\": \"LDL-C (Direct)\",\n      \"value\": 73,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 100\"\n    },\n    {\n      \"test_name\": \"VLDL\",\n      \"value\": 23,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 30\"\n    },\n    {\n      \"test_name\": \"Chol/HDL\",\n      \"value\": 4.3,\n      \"unit\": null,\n      \"reference_range\": \"< 5.0\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TuTH6hCqGDpb0CH5+Ti8rpEFngoajLLdNoPg3GfL9ztF1Nryemux1E2HgpB13JU6tKs7yBOdCAa4tlLYHAkCbwIn76h8GDP5MX/t/V73SL1uyN2TW+piHQ9EgjRW32BajnfHlFERh3A85StWx"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 2.981,
+      "score": {
+        "expected": 6,
+        "predicted": 6,
+        "matched": 6,
+        "fully_correct": 6,
+        "field_correct": {
+          "value": 6,
+          "unit": 6,
+          "reference_range": 6
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_09.jpg",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Hemoglobin (Hb)",
+            "value": 17.4,
+            "unit": "g/dL",
+            "reference_range": "13.0 - 17.0"
+          },
+          {
+            "test_name": "RBC Count",
+            "value": 4.85,
+            "unit": "mill/cumm",
+            "reference_range": "4.50 - 5.50"
+          },
+          {
+            "test_name": "Hematocrit",
+            "value": 47.7,
+            "unit": "%",
+            "reference_range": "40.0 - 50.0"
+          },
+          {
+            "test_name": "Mean Corpuscular Volume",
+            "value": 106.6,
+            "unit": "fL",
+            "reference_range": "83.0 - 101.0"
+          },
+          {
+            "test_name": "Mean Corpuscular Hb",
+            "value": 26.1,
+            "unit": "pg",
+            "reference_range": "27.0 - 32.0"
+          },
+          {
+            "test_name": "Mean Corp. Hb Conc.",
+            "value": 32.6,
+            "unit": "g/dL",
+            "reference_range": "31.5 - 34.5"
+          },
+          {
+            "test_name": "RDW",
+            "value": 12.8,
+            "unit": "%",
+            "reference_range": "11.6 - 14.0"
+          },
+          {
+            "test_name": "Total Leucocyte Count",
+            "value": 4700,
+            "unit": "/cumm",
+            "reference_range": "4000 - 10000"
+          },
+          {
+            "test_name": "Neutrophils",
+            "value": 52,
+            "unit": "%",
+            "reference_range": "40 - 80"
+          },
+          {
+            "test_name": "Lymphocytes",
+            "value": 35,
+            "unit": "%",
+            "reference_range": "20 - 40"
+          },
+          {
+            "test_name": "Eosinophils",
+            "value": 5,
+            "unit": "%",
+            "reference_range": "1 - 6"
+          },
+          {
+            "test_name": "Monocytes",
+            "value": 4,
+            "unit": "%",
+            "reference_range": "2 - 10"
+          },
+          {
+            "test_name": "Basophils",
+            "value": 2,
+            "unit": "%",
+            "reference_range": "0 - 2"
+          },
+          {
+            "test_name": "Platelets",
+            "value": "2,29,000",
+            "unit": "/cumm",
+            "reference_range": "1,50,000 - 4,10,000"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1453,
+          "candidatesTokenCount": 779,
+          "totalTokenCount": 2232,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 361
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Hemoglobin (Hb)\",\n      \"value\": 17.4,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"13.0 - 17.0\"\n    },\n    {\n      \"test_name\": \"RBC Count\",\n      \"value\": 4.85,\n      \"unit\": \"mill/cumm\",\n      \"reference_range\": \"4.50 - 5.50\"\n    },\n    {\n      \"test_name\": \"Hematocrit\",\n      \"value\": 47.7,\n      \"unit\": \"%\",\n      \"reference_range\": \"40.0 - 50.0\"\n    },\n    {\n      \"test_name\": \"Mean Corpuscular Volume\",\n      \"value\": 106.6,\n      \"unit\": \"fL\",\n      \"reference_range\": \"83.0 - 101.0\"\n    },\n    {\n      \"test_name\": \"Mean Corpuscular Hb\",\n      \"value\": 26.1,\n      \"unit\": \"pg\",\n      \"reference_range\": \"27.0 - 32.0\"\n    },\n    {\n      \"test_name\": \"Mean Corp. Hb Conc.\",\n      \"value\": 32.6,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"31.5 - 34.5\"\n    },\n    {\n      \"test_name\": \"RDW\",\n      \"value\": 12.8,\n      \"unit\": \"%\",\n      \"reference_range\": \"11.6 - 14.0\"\n    },\n    {\n      \"test_name\": \"Total Leucocyte Count\",\n      \"value\": 4700,\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"4000 - 10000\"\n    },\n    {\n      \"test_name\": \"Neutrophils\",\n      \"value\": 52,\n      \"unit\": \"%\",\n      \"reference_range\": \"40 - 80\"\n    },\n    {\n      \"test_name\": \"Lymphocytes\",\n      \"value\": 35,\n      \"unit\": \"%\",\n      \"reference_range\": \"20 - 40\"\n    },\n    {\n      \"test_name\": \"Eosinophils\",\n      \"value\": 5,\n      \"unit\": \"%\",\n      \"reference_range\": \"1 - 6\"\n    },\n    {\n      \"test_name\": \"Monocytes\",\n      \"value\": 4,\n      \"unit\": \"%\",\n      \"reference_range\": \"2 - 10\"\n    },\n    {\n      \"test_name\": \"Basophils\",\n      \"value\": 2,\n      \"unit\": \"%\",\n      \"reference_range\": \"0 - 2\"\n    },\n    {\n      \"test_name\": \"Platelets\",\n      \"value\": \"2,29,000\",\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"1,50,000 - 4,10,000\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TrjbiYMswsiwq+7JaGPIb11k/9HG7yv+cv8IMkWJUEzo+l6KFanKO+UCKeVWIHrtCOlqX796BUCfhAp8X1VB1AYDgUSCncRQIpZcd5Aj/fPgTn16hbzKHICRbI+YTUHVcSJ0AvwAieeF+hIi/"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 13.11,
+      "score": {
+        "expected": 14,
+        "predicted": 14,
+        "matched": 14,
+        "fully_correct": 14,
+        "field_correct": {
+          "value": 14,
+          "unit": 14,
+          "reference_range": 14
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_10.jpg",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "T3",
+            "value": 177,
+            "unit": "ng/dL",
+            "reference_range": "80 - 200"
+          },
+          {
+            "test_name": "T4",
+            "value": 8.2,
+            "unit": "µg/dL",
+            "reference_range": "5.1 - 14.1"
+          },
+          {
+            "test_name": "TSH (Ultrasensitive)",
+            "value": 1.84,
+            "unit": "µIU/mL",
+            "reference_range": "0.27 - 4.20"
+          },
+          {
+            "test_name": "S. Urea",
+            "value": 9,
+            "unit": "mg/dL",
+            "reference_range": "15 - 40"
+          },
+          {
+            "test_name": "S. Creatinine",
+            "value": 0.85,
+            "unit": "mg/dL",
+            "reference_range": "0.70 - 1.30"
+          },
+          {
+            "test_name": "S. Uric Acid",
+            "value": 6.7,
+            "unit": "mg/dL",
+            "reference_range": "3.5 - 7.2"
+          },
+          {
+            "test_name": "S. Sodium",
+            "value": 138,
+            "unit": "mmol/L",
+            "reference_range": "136 - 146"
+          },
+          {
+            "test_name": "S. Potassium",
+            "value": 3.1,
+            "unit": "mmol/L",
+            "reference_range": "3.5 - 5.1"
+          },
+          {
+            "test_name": "S. Chloride",
+            "value": 109,
+            "unit": "mmol/L",
+            "reference_range": "98 - 107"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 1453,
+          "candidatesTokenCount": 514,
+          "totalTokenCount": 1967,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 361
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1092
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"T3\",\n      \"value\": 177,\n      \"unit\": \"ng/dL\",\n      \"reference_range\": \"80 - 200\"\n    },\n    {\n      \"test_name\": \"T4\",\n      \"value\": 8.2,\n      \"unit\": \"µg/dL\",\n      \"reference_range\": \"5.1 - 14.1\"\n    },\n    {\n      \"test_name\": \"TSH (Ultrasensitive)\",\n      \"value\": 1.84,\n      \"unit\": \"µIU/mL\",\n      \"reference_range\": \"0.27 - 4.20\"\n    },\n    {\n      \"test_name\": \"S. Urea\",\n      \"value\": 9,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"15 - 40\"\n    },\n    {\n      \"test_name\": \"S. Creatinine\",\n      \"value\": 0.85,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"0.70 - 1.30\"\n    },\n    {\n      \"test_name\": \"S. Uric Acid\",\n      \"value\": 6.7,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"3.5 - 7.2\"\n    },\n    {\n      \"test_name\": \"S. Sodium\",\n      \"value\": 138,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"136 - 146\"\n    },\n    {\n      \"test_name\": \"S. Potassium\",\n      \"value\": 3.1,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"3.5 - 5.1\"\n    },\n    {\n      \"test_name\": \"S. Chloride\",\n      \"value\": 109,\n      \"unit\": \"mmol/L\",\n      \"reference_range\": \"98 - 107\"\n    }\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0T/Gh+BVcZC6OB1SiO+g36iyeEPkhw6LjI+uMEMim2rcu6qkDRLREQa+sq10MVSHQyYWxbQEN+y4I/Huh91yCYPXtBg9b5gqghnsf9lPUzvmVcVzUxTDClQDFjLpevlSfC/1CBuv+7fPUc8aKl"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 4.905
+    },
+    {
+      "report": "report_11.pdf",
+      "prediction": {
+        "tests": [
+          {
+            "test_name": "Hemoglobin (Hb)",
+            "value": 15.0,
+            "unit": "g/dL",
+            "reference_range": "13.0 - 17.0"
+          },
+          {
+            "test_name": "RBC Count",
+            "value": 4.2,
+            "unit": "mill/cumm",
+            "reference_range": "4.50 - 5.50"
+          },
+          {
+            "test_name": "Hematocrit",
+            "value": 46.3,
+            "unit": "%",
+            "reference_range": "40.0 - 50.0"
+          },
+          {
+            "test_name": "Mean Corpuscular Volume",
+            "value": 97.9,
+            "unit": "fL",
+            "reference_range": "83.0 - 101.0"
+          },
+          {
+            "test_name": "Mean Corpuscular Hb",
+            "value": 28.5,
+            "unit": "pg",
+            "reference_range": "27.0 - 32.0"
+          },
+          {
+            "test_name": "Mean Corp. Hb Conc.",
+            "value": 32.6,
+            "unit": "g/dL",
+            "reference_range": "31.5 - 34.5"
+          },
+          {
+            "test_name": "RDW",
+            "value": 13.6,
+            "unit": "%",
+            "reference_range": "11.6 - 14.0"
+          },
+          {
+            "test_name": "Total Leucocyte Count",
+            "value": 8000,
+            "unit": "/cumm",
+            "reference_range": "4000 - 10000"
+          },
+          {
+            "test_name": "Neutrophils",
+            "value": 48,
+            "unit": "%",
+            "reference_range": "40 - 80"
+          },
+          {
+            "test_name": "Lymphocytes",
+            "value": 23,
+            "unit": "%",
+            "reference_range": "20 - 40"
+          },
+          {
+            "test_name": "Eosinophils",
+            "value": 0,
+            "unit": "%",
+            "reference_range": "1 - 6"
+          },
+          {
+            "test_name": "Monocytes",
+            "value": 5,
+            "unit": "%",
+            "reference_range": "2 - 10"
+          },
+          {
+            "test_name": "Basophils",
+            "value": 1,
+            "unit": "%",
+            "reference_range": "0 - 2"
+          },
+          {
+            "test_name": "Platelets",
+            "value": "2,03,000",
+            "unit": "/cumm",
+            "reference_range": "1,50,000 - 4,10,000"
+          },
+          {
+            "test_name": "Cholesterol - Total",
+            "value": 188,
+            "unit": "mg/dL",
+            "reference_range": "< 200"
+          },
+          {
+            "test_name": "Serum Triglycerides",
+            "value": 88,
+            "unit": "mg/dL",
+            "reference_range": "< 150"
+          },
+          {
+            "test_name": "Cholesterol - HDL",
+            "value": 60,
+            "unit": "mg/dL",
+            "reference_range": "> 40"
+          },
+          {
+            "test_name": "Cholesterol - LDL",
+            "value": 80,
+            "unit": "mg/dL",
+            "reference_range": "< 100"
+          },
+          {
+            "test_name": "Cholesterol - VLDL",
+            "value": 23,
+            "unit": "mg/dL",
+            "reference_range": "< 30"
+          },
+          {
+            "test_name": "TC/HDL Ratio",
+            "value": 3.3,
+            "unit": null,
+            "reference_range": "< 5.0"
+          },
+          {
+            "test_name": "Total Bilirubin",
+            "value": 1.31,
+            "unit": "mg/dL",
+            "reference_range": "0.30 - 1.20"
+          },
+          {
+            "test_name": "Direct Bilirubin",
+            "value": 0.07,
+            "unit": "mg/dL",
+            "reference_range": "0.00 - 0.30"
+          },
+          {
+            "test_name": "Indirect Bilirubin",
+            "value": 0.41,
+            "unit": "mg/dL",
+            "reference_range": "0.20 - 0.90"
+          },
+          {
+            "test_name": "Aspartate Aminotransferase",
+            "value": 2,
+            "unit": "U/L",
+            "reference_range": "5 - 40"
+          },
+          {
+            "test_name": "Alanine Aminotransferase",
+            "value": 2,
+            "unit": "U/L",
+            "reference_range": "5 - 45"
+          },
+          {
+            "test_name": "ALP",
+            "value": 74,
+            "unit": "U/L",
+            "reference_range": "40 - 129"
+          },
+          {
+            "test_name": "Protein Total",
+            "value": 7.2,
+            "unit": "g/dL",
+            "reference_range": "6.4 - 8.3"
+          },
+          {
+            "test_name": "Serum Albumin",
+            "value": 4.9,
+            "unit": "g/dL",
+            "reference_range": "3.5 - 5.2"
+          },
+          {
+            "test_name": "Serum Globulin",
+            "value": 3.7,
+            "unit": "g/dL",
+            "reference_range": "2.0 - 3.5"
+          },
+          {
+            "test_name": "Albumin/Globulin Ratio",
+            "value": 1.1,
+            "unit": null,
+            "reference_range": "1.0 - 2.1"
+          },
+          {
+            "test_name": "Urea",
+            "value": 42,
+            "unit": "mg/dL",
+            "reference_range": "15 - 40"
+          },
+          {
+            "test_name": "Creatinine",
+            "value": 1.0,
+            "unit": "mg/dL",
+            "reference_range": "0.70 - 1.30"
+          },
+          {
+            "test_name": "Serum Uric Acid",
+            "value": 6.5,
+            "unit": "mg/dL",
+            "reference_range": "3.5 - 7.2"
+          },
+          {
+            "test_name": "Sodium (Na+)",
+            "value": 142,
+            "unit": "mmol/L",
+            "reference_range": "136 - 146"
+          },
+          {
+            "test_name": "Potassium (K+)",
+            "value": 3.9,
+            "unit": "mmol/L",
+            "reference_range": "3.5 - 5.1"
+          },
+          {
+            "test_name": "Chloride (Cl-)",
+            "value": 100,
+            "unit": "mmol/L",
+            "reference_range": "98 - 107"
+          },
+          {
+            "test_name": "Triiodothyronine (T3)",
+            "value": 186,
+            "unit": "ng/dL",
+            "reference_range": "80 - 200"
+          },
+          {
+            "test_name": "Thyroxine (T4)",
+            "value": 13.2,
+            "unit": "µg/dL",
+            "reference_range": "5.1 - 14.1"
+          },
+          {
+            "test_name": "Thyroid Stimulating Hormone",
+            "value": 1.45,
+            "unit": "µIU/mL",
+            "reference_range": "0.27 - 4.20"
+          },
+          {
+            "test_name": "Glycosylated Haemoglobin (HbA1c)",
+            "value": 3.6,
+            "unit": "%",
+            "reference_range": "< 5.7"
+          },
+          {
+            "test_name": "Glucose - Fasting",
+            "value": 94,
+            "unit": "mg/dL",
+            "reference_range": "70 - 100"
+          },
+          {
+            "test_name": "Glucose - PP",
+            "value": 80,
+            "unit": "mg/dL",
+            "reference_range": "70 - 140"
+          },
+          {
+            "test_name": "25-Hydroxy Vitamin D",
+            "value": 118.8,
+            "unit": "ng/mL",
+            "reference_range": "30.0 - 100.0"
+          },
+          {
+            "test_name": "Cyanocobalamin (B12)",
+            "value": 498,
+            "unit": "pg/mL",
+            "reference_range": "197 - 771"
+          },
+          {
+            "test_name": "Color",
+            "value": "Pale Yellow",
+            "unit": null,
+            "reference_range": "Pale Yellow"
+          },
+          {
+            "test_name": "Appearance",
+            "value": "Clear",
+            "unit": null,
+            "reference_range": "Clear"
+          },
+          {
+            "test_name": "Reaction (pH)",
+            "value": 6.0,
+            "unit": null,
+            "reference_range": "5.0 - 8.0"
+          },
+          {
+            "test_name": "Sp. Gravity",
+            "value": 1.015,
+            "unit": null,
+            "reference_range": "1.005 - 1.030"
+          },
+          {
+            "test_name": "Urine Protein",
+            "value": "Negative",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Urine Glucose",
+            "value": "Negative",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Ketone Bodies",
+            "value": "Negative",
+            "unit": null,
+            "reference_range": "Negative"
+          },
+          {
+            "test_name": "Pus Cells (WBC)",
+            "value": "8-10",
+            "unit": "/hpf",
+            "reference_range": "0 - 5"
+          },
+          {
+            "test_name": "RBC",
+            "value": "Nil",
+            "unit": "/hpf",
+            "reference_range": "Nil"
+          },
+          {
+            "test_name": "Epithelial Cells",
+            "value": "3-4",
+            "unit": "/hpf",
+            "reference_range": "0 - 5"
+          }
+        ]
+      },
+      "usage": [
+        {
+          "promptTokenCount": 2551,
+          "candidatesTokenCount": 2253,
+          "totalTokenCount": 4804,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 2184
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 367
+            }
+          ],
+          "serviceTier": "standard"
+        }
+      ],
+      "error": null,
+      "responses": [
+        {
+          "candidates": [
+            {
+              "content": {
+                "parts": [
+                  {
+                    "text": "{\n  \"tests\": [\n    {\"test_name\": \"Hemoglobin (Hb)\", \"value\": 15.0, \"unit\": \"g/dL\", \"reference_range\": \"13.0 - 17.0\"},\n    {\"test_name\": \"RBC Count\", \"value\": 4.2, \"unit\": \"mill/cumm\", \"reference_range\": \"4.50 - 5.50\"},\n    {\"test_name\": \"Hematocrit\", \"value\": 46.3, \"unit\": \"%\", \"reference_range\": \"40.0 - 50.0\"},\n    {\"test_name\": \"Mean Corpuscular Volume\", \"value\": 97.9, \"unit\": \"fL\", \"reference_range\": \"83.0 - 101.0\"},\n    {\"test_name\": \"Mean Corpuscular Hb\", \"value\": 28.5, \"unit\": \"pg\", \"reference_range\": \"27.0 - 32.0\"},\n    {\"test_name\": \"Mean Corp. Hb Conc.\", \"value\": 32.6, \"unit\": \"g/dL\", \"reference_range\": \"31.5 - 34.5\"},\n    {\"test_name\": \"RDW\", \"value\": 13.6, \"unit\": \"%\", \"reference_range\": \"11.6 - 14.0\"},\n    {\"test_name\": \"Total Leucocyte Count\", \"value\": 8000, \"unit\": \"/cumm\", \"reference_range\": \"4000 - 10000\"},\n    {\"test_name\": \"Neutrophils\", \"value\": 48, \"unit\": \"%\", \"reference_range\": \"40 - 80\"},\n    {\"test_name\": \"Lymphocytes\", \"value\": 23, \"unit\": \"%\", \"reference_range\": \"20 - 40\"},\n    {\"test_name\": \"Eosinophils\", \"value\": 0, \"unit\": \"%\", \"reference_range\": \"1 - 6\"},\n    {\"test_name\": \"Monocytes\", \"value\": 5, \"unit\": \"%\", \"reference_range\": \"2 - 10\"},\n    {\"test_name\": \"Basophils\", \"value\": 1, \"unit\": \"%\", \"reference_range\": \"0 - 2\"},\n    {\"test_name\": \"Platelets\", \"value\": \"2,03,000\", \"unit\": \"/cumm\", \"reference_range\": \"1,50,000 - 4,10,000\"},\n    {\"test_name\": \"Cholesterol - Total\", \"value\": 188, \"unit\": \"mg/dL\", \"reference_range\": \"< 200\"},\n    {\"test_name\": \"Serum Triglycerides\", \"value\": 88, \"unit\": \"mg/dL\", \"reference_range\": \"< 150\"},\n    {\"test_name\": \"Cholesterol - HDL\", \"value\": 60, \"unit\": \"mg/dL\", \"reference_range\": \"> 40\"},\n    {\"test_name\": \"Cholesterol - LDL\", \"value\": 80, \"unit\": \"mg/dL\", \"reference_range\": \"< 100\"},\n    {\"test_name\": \"Cholesterol - VLDL\", \"value\": 23, \"unit\": \"mg/dL\", \"reference_range\": \"< 30\"},\n    {\"test_name\": \"TC/HDL Ratio\", \"value\": 3.3, \"unit\": null, \"reference_range\": \"< 5.0\"},\n    {\"test_name\": \"Total Bilirubin\", \"value\": 1.31, \"unit\": \"mg/dL\", \"reference_range\": \"0.30 - 1.20\"},\n    {\"test_name\": \"Direct Bilirubin\", \"value\": 0.07, \"unit\": \"mg/dL\", \"reference_range\": \"0.00 - 0.30\"},\n    {\"test_name\": \"Indirect Bilirubin\", \"value\": 0.41, \"unit\": \"mg/dL\", \"reference_range\": \"0.20 - 0.90\"},\n    {\"test_name\": \"Aspartate Aminotransferase\", \"value\": 2, \"unit\": \"U/L\", \"reference_range\": \"5 - 40\"},\n    {\"test_name\": \"Alanine Aminotransferase\", \"value\": 2, \"unit\": \"U/L\", \"reference_range\": \"5 - 45\"},\n    {\"test_name\": \"ALP\", \"value\": 74, \"unit\": \"U/L\", \"reference_range\": \"40 - 129\"},\n    {\"test_name\": \"Protein Total\", \"value\": 7.2, \"unit\": \"g/dL\", \"reference_range\": \"6.4 - 8.3\"},\n    {\"test_name\": \"Serum Albumin\", \"value\": 4.9, \"unit\": \"g/dL\", \"reference_range\": \"3.5 - 5.2\"},\n    {\"test_name\": \"Serum Globulin\", \"value\": 3.7, \"unit\": \"g/dL\", \"reference_range\": \"2.0 - 3.5\"},\n    {\"test_name\": \"Albumin/Globulin Ratio\", \"value\": 1.1, \"unit\": null, \"reference_range\": \"1.0 - 2.1\"},\n    {\"test_name\": \"Urea\", \"value\": 42, \"unit\": \"mg/dL\", \"reference_range\": \"15 - 40\"},\n    {\"test_name\": \"Creatinine\", \"value\": 1.0, \"unit\": \"mg/dL\", \"reference_range\": \"0.70 - 1.30\"},\n    {\"test_name\": \"Serum Uric Acid\", \"value\": 6.5, \"unit\": \"mg/dL\", \"reference_range\": \"3.5 - 7.2\"},\n    {\"test_name\": \"Sodium (Na+)\", \"value\": 142, \"unit\": \"mmol/L\", \"reference_range\": \"136 - 146\"},\n    {\"test_name\": \"Potassium (K+)\", \"value\": 3.9, \"unit\": \"mmol/L\", \"reference_range\": \"3.5 - 5.1\"},\n    {\"test_name\": \"Chloride (Cl-)\", \"value\": 100, \"unit\": \"mmol/L\", \"reference_range\": \"98 - 107\"},\n    {\"test_name\": \"Triiodothyronine (T3)\", \"value\": 186, \"unit\": \"ng/dL\", \"reference_range\": \"80 - 200\"},\n    {\"test_name\": \"Thyroxine (T4)\", \"value\": 13.2, \"unit\": \"µg/dL\", \"reference_range\": \"5.1 - 14.1\"},\n    {\"test_name\": \"Thyroid Stimulating Hormone\", \"value\": 1.45, \"unit\": \"µIU/mL\", \"reference_range\": \"0.27 - 4.20\"},\n    {\"test_name\": \"Glycosylated Haemoglobin (HbA1c)\", \"value\": 3.6, \"unit\": \"%\", \"reference_range\": \"< 5.7\"},\n    {\"test_name\": \"Glucose - Fasting\", \"value\": 94, \"unit\": \"mg/dL\", \"reference_range\": \"70 - 100\"},\n    {\"test_name\": \"Glucose - PP\", \"value\": 80, \"unit\": \"mg/dL\", \"reference_range\": \"70 - 140\"},\n    {\"test_name\": \"25-Hydroxy Vitamin D\", \"value\": 118.8, \"unit\": \"ng/mL\", \"reference_range\": \"30.0 - 100.0\"},\n    {\"test_name\": \"Cyanocobalamin (B12)\", \"value\": 498, \"unit\": \"pg/mL\", \"reference_range\": \"197 - 771\"},\n    {\"test_name\": \"Color\", \"value\": \"Pale Yellow\", \"unit\": null, \"reference_range\": \"Pale Yellow\"},\n    {\"test_name\": \"Appearance\", \"value\": \"Clear\", \"unit\": null, \"reference_range\": \"Clear\"},\n    {\"test_name\": \"Reaction (pH)\", \"value\": 6.0, \"unit\": null, \"reference_range\": \"5.0 - 8.0\"},\n    {\"test_name\": \"Sp. Gravity\", \"value\": 1.015, \"unit\": null, \"reference_range\": \"1.005 - 1.030\"},\n    {\"test_name\": \"Urine Protein\", \"value\": \"Negative\", \"unit\": null, \"reference_range\": \"Negative\"},\n    {\"test_name\": \"Urine Glucose\", \"value\": \"Negative\", \"unit\": null, \"reference_range\": \"Negative\"},\n    {\"test_name\": \"Ketone Bodies\", \"value\": \"Negative\", \"unit\": null, \"reference_range\": \"Negative\"},\n    {\"test_name\": \"Pus Cells (WBC)\", \"value\": \"8-10\", \"unit\": \"/hpf\", \"reference_range\": \"0 - 5\"},\n    {\"test_name\": \"RBC\", \"value\": \"Nil\", \"unit\": \"/hpf\", \"reference_range\": \"Nil\"},\n    {\"test_name\": \"Epithelial Cells\", \"value\": \"3-4\", \"unit\": \"/hpf\", \"reference_range\": \"0 - 5\"}\n  ]\n}",
+                    "thoughtSignature": "EnMKcQFpFH0TL5GbtIp5cweHZuI8mhUi18yNIlwr+6WiY+K7PYcg0V2PU+pUla9TeGX6iK0LK/JVgwgOPRQjmWwtIyzE4YFVOKujVrVhu1UtYbIre40JCD9/lNwOqeCHPA+G0R/fsUlLAXghiDConVehL0y8"
+                  }
+                ],
+                "role": "model"
+              },
+              "finishReason": "STOP",
+              "index": 0
+            }
+          ],
+          "promptFeedback": null
+        }
+      ],
+      "latency_seconds": 13.723,
+      "score": {
+        "expected": 54,
+        "predicted": 54,
+        "matched": 54,
+        "fully_correct": 54,
+        "field_correct": {
+          "value": 54,
+          "unit": 54,
+          "reference_range": 54
+        },
+        "errors": [],
+        "extra_rows": []
+      }
+    },
+    {
+      "report": "report_12.jpg",
+      "prediction": null,
+      "usage": [],
+      "error": {
+        "type": "RuntimeError",
+        "http_status": null,
+        "message": "Gemini HTTP 503; check model access, key, or quota."
+      },
+      "responses": [
+        {
+          "error_type": "HTTPError",
+          "http_status": 503
+        },
+        {
+          "error_type": "HTTPError",
+          "http_status": 503
+        }
+      ],
+      "latency_seconds": 12.536
+    }
+  ]
+}
