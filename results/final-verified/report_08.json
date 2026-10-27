@@ -1,0 +1,83 @@
+{
+  "report": "report_08.jpg",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "S. Cholesterol",
+        "value": 155,
+        "unit": "mg/dL",
+        "reference_range": "< 200"
+      },
+      {
+        "test_name": "TG",
+        "value": 106,
+        "unit": "mg/dL",
+        "reference_range": "< 150"
+      },
+      {
+        "test_name": "HDL-C",
+        "value": 60,
+        "unit": "mg/dL",
+        "reference_range": "> 40"
+      },
+      {
+        "test_name": "LDL-C (Direct)",
+        "value": 73,
+        "unit": "mg/dL",
+        "reference_range": "< 100"
+      },
+      {
+        "test_name": "VLDL",
+        "value": 23,
+        "unit": "mg/dL",
+        "reference_range": "< 30"
+      },
+      {
+        "test_name": "Chol/HDL",
+        "value": 4.3,
+        "unit": null,
+        "reference_range": "< 5.0"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1453,
+      "candidatesTokenCount": 309,
+      "totalTokenCount": 1762,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 361
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"S. Cholesterol\",\n      \"value\": 155,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 200\"\n    },\n    {\n      \"test_name\": \"TG\",\n      \"value\": 106,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 150\"\n    },\n    {\n      \"test_name\": \"HDL-C\",\n      \"value\": 60,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"> 40\"\n    },\n    {\n      \"test_name\": \"LDL-C (Direct)\",\n      \"value\": 73,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 100\"\n    },\n    {\n      \"test_name\": \"VLDL\",\n      \"value\": 23,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"< 30\"\n    },\n    {\n      \"test_name\": \"Chol/HDL\",\n      \"value\": 4.3,\n      \"unit\": null,\n      \"reference_range\": \"< 5.0\"\n    }\n  ]\n}",
+                "thoughtSignature": "EnMKcQFpFH0TM66LZ+DJlwkvXxMTwv/bBidO47c8+HWHypsdITFGIUHXpi6MBq/4Y9F2vTosDeXdJ7ttmAllV+9TgaD2LyPV1F0TEfj5W6QUAG8FqJNV7Fp28UidweC/HY5L9en+y8ZHEr/aWJxBA9idTFxp"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 3.986
+}

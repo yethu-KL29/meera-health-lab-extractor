@@ -5,6 +5,8 @@ from pathlib import Path
 
 from evaluate import FIELDS, ROOT, score
 
+RATES = {'gemini-3.1-flash-lite': (0.25, 1.50), 'gemini-3.5-flash-lite': (0.30, 2.50)}
+
 
 def summarize(folder):
     metadata = json.loads((folder / 'run.json').read_text(encoding='utf-8'))
@@ -29,9 +31,10 @@ def summarize(folder):
                           'per_report': scores}
     for record in records:
         usages = record.get('usage', [])
-        if metadata['model'] == 'gemini-3.1-flash-lite' and usages and all('promptTokenCount' in u and 'candidatesTokenCount' in u for u in usages):
+        rates = RATES.get(metadata['model'])
+        if rates and usages and all('promptTokenCount' in u and 'candidatesTokenCount' in u for u in usages):
             record['estimated_list_cost_usd'] = sum(
-                (u['promptTokenCount'] * 0.25 + (u['candidatesTokenCount'] + u.get('thoughtsTokenCount', 0)) * 1.50) / 1e6
+                (u['promptTokenCount'] * rates[0] + (u['candidatesTokenCount'] + u.get('thoughtsTokenCount', 0)) * rates[1]) / 1e6
                 for u in usages)
         else:
             record['estimated_list_cost_usd'] = None
@@ -51,7 +54,8 @@ def summarize(folder):
 def main():
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('runs', nargs='*', default=['baseline-flash-lite', 'final-verified', 'experiment-300dpi'])
+    parser.add_argument('runs', nargs='*', default=['baseline-flash-lite', 'final-verified', 'experiment-300dpi',
+                                                 'baseline-35-flash-lite', 'final-35-flash-lite'])
     args = parser.parse_args()
     comparison = {run: summarize(ROOT / 'results' / run) for run in args.runs}
     (ROOT / 'results' / 'comparison.json').write_text(json.dumps(comparison, indent=2, ensure_ascii=False), encoding='utf-8')

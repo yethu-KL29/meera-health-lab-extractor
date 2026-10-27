@@ -1,0 +1,9 @@
+{
+  "implementation": "baseline",
+  "model": "gemini-3.1-flash-lite",
+  "started_utc": "2026-10-27T04:14:21.654068+00:00",
+  "source_sha256": "3e616543943a2fa0b211bee7934bee1c108f26ac9609dcbe15255a188928c421",
+  "scorer_sha256": "3537cca6aa968ddcfcc85c5a93bf95a968237d21444a2ad131a5e6b3ac7bad86",
+  "actual_spend_usd": null,
+  "note": "Spend requires account billing verification."
+}

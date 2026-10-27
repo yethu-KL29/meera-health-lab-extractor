@@ -1,0 +1,103 @@
+{
+  "report": "report_03.pdf",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "T3",
+        "value": 179.0,
+        "unit": "ng/dL",
+        "reference_range": "80 - 200 ng/dL",
+        "status": "normal"
+      },
+      {
+        "test_name": "T4",
+        "value": 10.9,
+        "unit": "µg/dL",
+        "reference_range": "5.0 - 12.0 µg/dL",
+        "status": "normal"
+      },
+      {
+        "test_name": "TSH",
+        "value": 2.49,
+        "unit": "µIU/mL",
+        "reference_range": "0.27 - 4.20",
+        "status": "normal"
+      },
+      {
+        "test_name": "Vitamin D Total",
+        "value": 58.9,
+        "unit": "ng/mL",
+        "reference_range": "30.0 - 100.0",
+        "status": "normal"
+      },
+      {
+        "test_name": "Vitamin B12",
+        "value": 359.0,
+        "unit": "pg/mL",
+        "reference_range": "197 - 771",
+        "status": "normal"
+      },
+      {
+        "test_name": "Glycated Hb",
+        "value": 6.0,
+        "unit": "%",
+        "reference_range": "< 5.7 %",
+        "status": "high"
+      },
+      {
+        "test_name": "Fasting Blood Sugar",
+        "value": 88.0,
+        "unit": "mg/dL",
+        "reference_range": "70 - 100",
+        "status": "normal"
+      },
+      {
+        "test_name": "Postprandial Blood Sugar",
+        "value": 95.0,
+        "unit": "mg/dL",
+        "reference_range": "70 - 140",
+        "status": "normal"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1242,
+      "candidatesTokenCount": 538,
+      "totalTokenCount": 1780,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 150
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"tests\": [\n    {\n      \"test_name\": \"T3\",\n      \"value\": 179.0,\n      \"unit\": \"ng/dL\",\n      \"reference_range\": \"80 - 200 ng/dL\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"T4\",\n      \"value\": 10.9,\n      \"unit\": \"µg/dL\",\n      \"reference_range\": \"5.0 - 12.0 µg/dL\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"TSH\",\n      \"value\": 2.49,\n      \"unit\": \"µIU/mL\",\n      \"reference_range\": \"0.27 - 4.20\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Vitamin D Total\",\n      \"value\": 58.9,\n      \"unit\": \"ng/mL\",\n      \"reference_range\": \"30.0 - 100.0\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Vitamin B12\",\n      \"value\": 359.0,\n      \"unit\": \"pg/mL\",\n      \"reference_range\": \"197 - 771\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Glycated Hb\",\n      \"value\": 6.0,\n      \"unit\": \"%\",\n      \"reference_range\": \"< 5.7 %\",\n      \"status\": \"high\"\n    },\n    {\n      \"test_name\": \"Fasting Blood Sugar\",\n      \"value\": 88.0,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 100\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Postprandial Blood Sugar\",\n      \"value\": 95.0,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 140\",\n      \"status\": \"normal\"\n    }\n  ]\n}\n```",
+                "thoughtSignature": "EmAKXgFpFH0TRHgV2EP0E6208tLQDcRA/eVghZtFZoKUeVi0a1MoJbfsb5yBx7oAaZ554cs+LS7eAiPTyik3gSUmUgWZceVhfsObQeKo771Y+SVTr+yWvEU95HBiCrmKSxk="
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 2.33
+}

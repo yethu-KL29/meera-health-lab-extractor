@@ -1,0 +1,26 @@
+{
+  "report": "report_12.jpg",
+  "prediction": {
+    "tests": []
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1453,
+      "candidatesTokenCount": 5,
+      "totalTokenCount": 1458,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 361
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "latency_seconds": 2.278
+}

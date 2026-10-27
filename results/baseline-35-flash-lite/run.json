@@ -1,0 +1,13 @@
+{
+  "implementation": "baseline",
+  "model": "gemini-3.5-flash-lite",
+  "started_utc": "2026-10-27T04:25:53.614415+00:00",
+  "source_sha256": "3e616543943a2fa0b211bee7934bee1c108f26ac9609dcbe15255a188928c421",
+  "scorer_sha256": "45d50c160e97d1e0038180bee7c1dd8c1fd6822cbabd7974fa2d004f60d7f56a",
+  "dpi": 60,
+  "temperature": 0,
+  "max_output_tokens": 16000,
+  "prompt": "You are an expert at reading medical lab reports.\n\nLook at this lab report and extract every test result from it.\n\nReturn JSON in exactly this format:\n{\"tests\": [{\"test_name\": \"...\", \"value\": 0.0, \"unit\": \"...\", \"reference_range\": \"...\", \"status\": \"normal\"}]}\n\nRules:\n- Use the standard medical name for each test.\n- value must be a number.\n- If a reference range is missing from the report, fill in the standard reference range for that test.\n- status is \"normal\", \"high\" or \"low\", based on the value and the reference range.\n- Be thorough. Do not miss any tests.\n",
+  "actual_spend_usd": null,
+  "note": "Spend requires account billing verification."
+}

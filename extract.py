@@ -1,6 +1,6 @@
 """Extract source-faithful lab rows: python extract.py <PDF/JPG/PNG>.
 
-Python 3.10+, pip install -r requirements.txt; set GEMINI_API_KEY.
+Python 3.11+, pip install -r requirements.txt; set GEMINI_API_KEY.
 Successful stdout contains only schema-valid JSON. Errors use stderr/nonzero exit.
 """
 import base64

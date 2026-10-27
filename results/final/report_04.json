@@ -1,0 +1,10 @@
+{
+  "report": "report_04.pdf",
+  "prediction": null,
+  "usage": [],
+  "error": {
+    "type": "TypeError",
+    "http_status": null
+  },
+  "latency_seconds": 0.011
+}

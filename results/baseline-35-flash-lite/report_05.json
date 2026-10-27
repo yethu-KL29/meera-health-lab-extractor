@@ -1,0 +1,145 @@
+{
+  "report": "report_05.pdf",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "Haemoglobin",
+        "value": 11.9,
+        "unit": "g/dL",
+        "reference_range": "13.0 - 17.0",
+        "status": "low"
+      },
+      {
+        "test_name": "Total RBC Count",
+        "value": 5.83,
+        "unit": "mill/cumm",
+        "reference_range": "4.50 - 5.50",
+        "status": "high"
+      },
+      {
+        "test_name": "Packed Cell Volume (PCV)",
+        "value": 45.9,
+        "unit": "%",
+        "reference_range": "40.0 - 50.0",
+        "status": "normal"
+      },
+      {
+        "test_name": "MCV",
+        "value": 94.9,
+        "unit": "fL",
+        "reference_range": "83.0 - 101.0",
+        "status": "normal"
+      },
+      {
+        "test_name": "MCH",
+        "value": 28.3,
+        "unit": "pg",
+        "reference_range": "27.0 - 32.0",
+        "status": "normal"
+      },
+      {
+        "test_name": "MCHC",
+        "value": 33.5,
+        "unit": "g/dL",
+        "reference_range": "31.5 - 34.5",
+        "status": "normal"
+      },
+      {
+        "test_name": "RDW-CV",
+        "value": 13.6,
+        "unit": "%",
+        "reference_range": "11.6 - 14.0",
+        "status": "normal"
+      },
+      {
+        "test_name": "Total WBC Count",
+        "value": 2800.0,
+        "unit": "/cumm",
+        "reference_range": "4000 - 10000",
+        "status": "low"
+      },
+      {
+        "test_name": "Neutrophils",
+        "value": 32.0,
+        "unit": "%",
+        "reference_range": "40 - 80",
+        "status": "low"
+      },
+      {
+        "test_name": "Lymphocytes",
+        "value": 16.0,
+        "unit": "%",
+        "reference_range": "20 - 40",
+        "status": "low"
+      },
+      {
+        "test_name": "Eosinophils",
+        "value": 5.0,
+        "unit": "%",
+        "reference_range": "1 - 6",
+        "status": "normal"
+      },
+      {
+        "test_name": "Monocytes",
+        "value": 6.0,
+        "unit": "%",
+        "reference_range": "2 - 10",
+        "status": "normal"
+      },
+      {
+        "test_name": "Basophils",
+        "value": 2.0,
+        "unit": "%",
+        "reference_range": "0 - 2",
+        "status": "normal"
+      },
+      {
+        "test_name": "Platelet Count",
+        "value": 3.03,
+        "unit": "lakh/cumm",
+        "reference_range": "1.50 - 4.10",
+        "status": "normal"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1242,
+      "candidatesTokenCount": 883,
+      "totalTokenCount": 2125,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 150
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "```json\n{\n  \"tests\": [\n    {\n      \"test_name\": \"Haemoglobin\",\n      \"value\": 11.9,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"13.0 - 17.0\",\n      \"status\": \"low\"\n    },\n    {\n      \"test_name\": \"Total RBC Count\",\n      \"value\": 5.83,\n      \"unit\": \"mill/cumm\",\n      \"reference_range\": \"4.50 - 5.50\",\n      \"status\": \"high\"\n    },\n    {\n      \"test_name\": \"Packed Cell Volume (PCV)\",\n      \"value\": 45.9,\n      \"unit\": \"%\",\n      \"reference_range\": \"40.0 - 50.0\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"MCV\",\n      \"value\": 94.9,\n      \"unit\": \"fL\",\n      \"reference_range\": \"83.0 - 101.0\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"MCH\",\n      \"value\": 28.3,\n      \"unit\": \"pg\",\n      \"reference_range\": \"27.0 - 32.0\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"MCHC\",\n      \"value\": 33.5,\n      \"unit\": \"g/dL\",\n      \"reference_range\": \"31.5 - 34.5\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"RDW-CV\",\n      \"value\": 13.6,\n      \"unit\": \"%\",\n      \"reference_range\": \"11.6 - 14.0\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Total WBC Count\",\n      \"value\": 2800,\n      \"unit\": \"/cumm\",\n      \"reference_range\": \"4000 - 10000\",\n      \"status\": \"low\"\n    },\n    {\n      \"test_name\": \"Neutrophils\",\n      \"value\": 32,\n      \"unit\": \"%\",\n      \"reference_range\": \"40 - 80\",\n      \"status\": \"low\"\n    },\n    {\n      \"test_name\": \"Lymphocytes\",\n      \"value\": 16,\n      \"unit\": \"%\",\n      \"reference_range\": \"20 - 40\",\n      \"status\": \"low\"\n    },\n    {\n      \"test_name\": \"Eosinophils\",\n      \"value\": 5,\n      \"unit\": \"%\",\n      \"reference_range\": \"1 - 6\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Monocytes\",\n      \"value\": 6,\n      \"unit\": \"%\",\n      \"reference_range\": \"2 - 10\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Basophils\",\n      \"value\": 2,\n      \"unit\": \"%\",\n      \"reference_range\": \"0 - 2\",\n      \"status\": \"normal\"\n    },\n    {\n      \"test_name\": \"Platelet Count\",\n      \"value\": 3.03,\n      \"unit\": \"lakh/cumm\",\n      \"reference_range\": \"1.50 - 4.10\",\n      \"status\": \"normal\"\n    }\n  ]\n}\n```",
+                "thoughtSignature": "EmAKXgFpFH0TCPJm5yHC8awpEBWgcu0UneiQp00Skz+g3gNDZg9InLhFCg5mcEw6Pbq/Y0Y7KjJzN0LJwriwebQYumA+XYRtLJ2tgCbdxoXvhpUwF/EFIXb1iz8SjPh+meM="
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 5.401
+}

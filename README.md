@@ -1,42 +1,64 @@
-# Lab report extraction: starter kit
+# Lab Report Extractor
 
-Read the brief first. This file only covers what's in the kit and how to run it.
+Converts PDF scans and phone photos into source-faithful JSON. The supplied extractor omitted later PDF pages, forced non-numeric results into numbers, and invented missing reference ranges. The final version fixes those behaviors with all-page 150 DPI rendering, one constrained transcription call, preserved values, and schema validation.
 
-## Contents
+## Run
 
-- `extract.py`: the baseline extractor.
-- `reports/`: 12 sample documents (`.pdf` and `.jpg`).
-- `gold/`: labels for 8 of the 12, named after the report they belong to.
-- `schema.json`: the output shape.
+Python **3.11+** (tested 3.13), Gemini API access, and these dependencies:
 
-## Run it
-
-Use Python 3.10 or newer and install Poppler, which provides `pdftoppm`:
-
-- macOS: `brew install poppler`
-- Ubuntu/Debian: `sudo apt-get install poppler-utils`
-
-The supplied Gemini setup is one starting point. You can use free credits or adapt the starter to an accessible provider or a local open model; paid access is not required. If you change the model/provider to get started, measure the baseline with that setup before changing its extraction behavior, and document the substitution.
-
-There are no Python package dependencies for the supplied setup. From this folder:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-pdftoppm -v
-python -c 'import getpass, os, subprocess, sys; env = os.environ.copy(); env["GEMINI_API_KEY"] = getpass.getpass("Gemini API key: "); sys.exit(subprocess.call([sys.executable, "extract.py", "reports/report_01.pdf"], env=env))'
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
 ```
 
-The last command securely prompts for your key and runs one extraction as a setup smoke test. It makes an API call, which may incur charges depending on your account, and should print JSON containing a `tests` array. It does not save the key or put it in shell history. For repeated calls, set `GEMINI_API_KEY` through your usual local secret/environment setup; do not commit it.
+On macOS/Linux use `source .venv/bin/activate`. Set `GEMINI_API_KEY` through your local secret/environment setup; never commit it. Then:
 
-The default model is `gemini-3.8-flash`. Google's [pricing page](https://ai.google.dev/gemini-api/docs/pricing) currently lists free-tier input and output for this model (checked 8 October 2026). You can start with a free-tier project and an API key from [Google AI Studio](https://aistudio.google.com/apikey). Check your project's [active rate limits](https://ai.google.dev/gemini-api/docs/rate-limits): quotas apply per project, and access and limits may change. A key on a paid project can incur charges. If access or quota is insufficient, use another model or provider and document your setup.
-
-The baseline calls the Gemini REST API. You're free to change model (`GEMINI_MODEL`) or provider; record the exact choice with your measurements. Whatever you change, this must keep working and keep printing schema-valid JSON to stdout, because it's how we'll run your version on reports you haven't seen:
-
-```bash
-python extract.py <path-to-report>
+```sh
+python extract.py reports/report_11.pdf
+python evaluate.py --implementation extract --output results/new-run
+python report_results.py
+python -m unittest discover -v
 ```
 
-If your version needs different setup (other packages, other environment variables), say so at the top of your README.
+Evaluation runs all 12 reports and saves predictions/usage/latency/errors; use a new output directory. `report_results.py` reproduces comparisons **offline**. Extraction stdout is JSON only; errors exit nonzero. [Detailed instructions](RUNNING.md) include secure key prompting, baseline reproduction, saved-output scoring, and model/DPI experiments.
 
-For setup errors: a missing `pdftoppm` means Poppler is not on `PATH`; HTTP 401/403 means check key/project access, 404 means check model availability, and 429 means check quota. For a connection/TLS error, check network access before retrying. Never disable TLS verification. Keep access troubleshooting within the timebox; document constraints and any alternative you use.
+Default is **gemini-3.1-flash-lite**; `GEMINI_MODEL=gemini-3.5-flash-lite` selects the additional tested model. Supplied 3.8 timed out; two 2.5 alternatives returned 404 ([evidence](ACCESS.md)). Unchanged `baseline.py` needs Poppler on PATH; final extraction does not. `EXTRACT_DPI` defaults to 150.
+
+## Evaluation and measured results
+
+Eight labelled reports contain **138 rows**. Match names through frozen explicit aliases; a correct row needs correct value, unit, and printed range. Numeric formatting and whitespace are normalized; comparators, qualitative meaning, missing fields, and units remain significant. Missing/extra rows penalize micro strict-row F1. [Scoring protocol](EVALUATION.md) was committed before extraction changes.
+
+| Run/model | Original F1 | Audited F1 | Median latency | Mean list USD/report |
+|---|---:|---:|---:|---:|
+| Baseline / 3.1 | 64.29% | 65.08% | 5.20 s | $0.001425 |
+| Final / 3.1 | **99.28%** | **100.00%** | 5.50 s | $0.001494 |
+| 300 DPI experiment / 3.1 | 99.28% | 100.00% | 10.28 s | $0.001511 |
+| Baseline / 3.5 | 77.78% | 78.57% | 3.10 s | $0.001995 |
+| Final / 3.5 | **99.28%** | **100.00%** | 4.04 s | $0.002269 |
+
+All canonical runs completed 12 reports without terminal failures. Final original-label precision/recall are both 99.28%; value/unit/range accuracy is 99.28%/100%/100%. One label transposes report_01 platelets: printed **340000**, labelled **304000**. Original labels are untouched; [audit](AUDIT.md) and `gold_audited/` document the correction before final results.
+
+Single sequential development runs cannot establish unseen-report performance. Thirty 3.1 baseline predictions miss frozen name aliases, often harmless expansions; some F1 gain is name fidelity. [Standard rates](https://ai.google.dev/gemini-api/docs/pricing), checked 2026-10-27, are $0.25/$1.50 per million input/output tokens for 3.1 and $0.30/$2.50 for 3.5, including thinking. Actual billing is unknown; estimates exclude compute and unobserved failed-call charges. At 10,000/day, final successful-response API cost projects **$14.94 (3.1) / $22.69 (3.5)**. Keep cheaper 3.1 by default: 3.5 matched accuracy at 52% higher cost. Its lower measured latency needs replication; 3.1 retried two HTTP 503s (mean 10.37 s versus 3.5's 4.46 s).
+
+## Diagnosis, experiment, and review
+
+| Failure category | Specific baseline evidence | Root cause and final result |
+|---|---|---|
+| Missing coverage | report_11 Urea 42 mg/dL and all 24 page-two rows absent | Rendering explicitly stopped at page one. All-page input yields 54/54 correct rows. |
+| Changed result meaning | report_06 Sugar Present (+)→1; Leucocytes 2-3→2.5; CRP <0.5→0.5 | Numeric-only prompt plus float coercion destroys text/comparators. Source transcription preserves all 12 rows. |
+| Invented reference ranges | report_03 blank T3 range→80–200; T4→5.0–12.0; HbA1c→4.0–5.6 | Prompt explicitly asked for standard ranges. Final copies only printed ranges and returns null for all three blanks. |
+
+**Unsuccessful experiment:** 150→300 DPI improved neither F1. PDF input tokens were identical (12,743). PDF-only median latency rose 8.20→9.81 s while mean fell 13.12→8.91 s; service variation/retries prevent causal latency claims. Keep 150: no quality gain justified larger images. This does not establish that 60 DPI is adequate.
+
+Four unlabelled reports were assessed through agent-led source inspection, row counts, and spot checks: 04 has 9 rows; 07 has 10 and excludes handwritten advice; 10 has 9, including potassium 3.1 and chloride 109; 12 correctly returns no lab results for a prescription. Counts/spot checks passed; partly obscured report_07 globulin remains a review concern. These are not independent gold labels or human verification.
+
+**Decision log:** committed immutable [PLAN.md](PLAN.md) first; preserved baseline/scoring; substituted the model before behavioral changes; corrected only a source-backed label; retained failed runs. Fixed a PDFium cleanup error and added one bounded HTTP retry. Thirteen offline checks and an actual CLI smoke test passed. [Actual prompts/rationale](prompts/README.md) and [run evidence](results/README.md) are included. No human overrides/verification are claimed. Transcript omitted because chat contains a credential. Remaining risks: unseen layouts, unreadable handwriting, long documents, model variability, and conservative name matching.
+
+## Architecture choices
+
+**RAG:** not justified for transcribing these reports: the required facts are on the uploaded pages, and external ranges would reproduce a demonstrated hallucination. A curated terminology lookup could later support downstream normalization, with original values preserved, if name-matching errors justify it.
+
+**Fine-tuning:** eight imperfect labelled reports cannot establish generalization across labs, photos, and scans. First-page truncation and destructive coercion are pipeline defects that training cannot repair. Consider tuning only after collecting substantially more audited, diverse data and a separate evaluation set, with a measured recurring error target.
+
+**Multi-step agent:** not justified by these results. All-page input, clear transcription rules, and deterministic validation address the observed failures without additional model passes. A targeted review pass for unreadable/ambiguous rows could be tested later, but must beat this pipeline on independent quality, cost, and latency evidence.

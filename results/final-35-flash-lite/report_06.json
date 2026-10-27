@@ -1,0 +1,119 @@
+{
+  "report": "report_06.pdf",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "Colour",
+        "value": "Dark Yellow",
+        "unit": null,
+        "reference_range": "Pale Yellow"
+      },
+      {
+        "test_name": "Clarity",
+        "value": "Clear",
+        "unit": null,
+        "reference_range": "Clear"
+      },
+      {
+        "test_name": "pH",
+        "value": 6.5,
+        "unit": null,
+        "reference_range": "5.0 - 8.0"
+      },
+      {
+        "test_name": "Specific Gravity",
+        "value": 1.02,
+        "unit": null,
+        "reference_range": "1.005 - 1.030"
+      },
+      {
+        "test_name": "Albumin",
+        "value": "Negative",
+        "unit": null,
+        "reference_range": "Negative"
+      },
+      {
+        "test_name": "Sugar",
+        "value": "Present (+)",
+        "unit": null,
+        "reference_range": "Negative"
+      },
+      {
+        "test_name": "Ketones",
+        "value": "Negative",
+        "unit": null,
+        "reference_range": "Negative"
+      },
+      {
+        "test_name": "Leucocytes",
+        "value": "2-3",
+        "unit": "/hpf",
+        "reference_range": "0 - 5"
+      },
+      {
+        "test_name": "Erythrocytes",
+        "value": "1-2",
+        "unit": "/hpf",
+        "reference_range": "Nil"
+      },
+      {
+        "test_name": "Squamous Epithelial Cells",
+        "value": "1-2",
+        "unit": "/hpf",
+        "reference_range": "0 - 5"
+      },
+      {
+        "test_name": "CRP",
+        "value": "< 0.5",
+        "unit": "mg/L",
+        "reference_range": "< 5.0"
+      },
+      {
+        "test_name": "E.S.R. (Westergren)",
+        "value": 13,
+        "unit": "mm/hr",
+        "reference_range": "0 - 15"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1456,
+      "candidatesTokenCount": 588,
+      "totalTokenCount": 2044,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 364
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"Colour\",\n      \"value\": \"Dark Yellow\",\n      \"unit\": null,\n      \"reference_range\": \"Pale Yellow\"\n    },\n    {\n      \"test_name\": \"Clarity\",\n      \"value\": \"Clear\",\n      \"unit\": null,\n      \"reference_range\": \"Clear\"\n    },\n    {\n      \"test_name\": \"pH\",\n      \"value\": 6.5,\n      \"unit\": null,\n      \"reference_range\": \"5.0 - 8.0\"\n    },\n    {\n      \"test_name\": \"Specific Gravity\",\n      \"value\": 1.020,\n      \"unit\": null,\n      \"reference_range\": \"1.005 - 1.030\"\n    },\n    {\n      \"test_name\": \"Albumin\",\n      \"value\": \"Negative\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Sugar\",\n      \"value\": \"Present (+)\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Ketones\",\n      \"value\": \"Negative\",\n      \"unit\": null,\n      \"reference_range\": \"Negative\"\n    },\n    {\n      \"test_name\": \"Leucocytes\",\n      \"value\": \"2-3\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"0 - 5\"\n    },\n    {\n      \"test_name\": \"Erythrocytes\",\n      \"value\": \"1-2\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"Nil\"\n    },\n    {\n      \"test_name\": \"Squamous Epithelial Cells\",\n      \"value\": \"1-2\",\n      \"unit\": \"/hpf\",\n      \"reference_range\": \"0 - 5\"\n    },\n    {\n      \"test_name\": \"CRP\",\n      \"value\": \"< 0.5\",\n      \"unit\": \"mg/L\",\n      \"reference_range\": \"< 5.0\"\n    },\n    {\n      \"test_name\": \"E.S.R. (Westergren)\",\n      \"value\": 13,\n      \"unit\": \"mm/hr\",\n      \"reference_range\": \"0 - 15\"\n    }\n  ]\n}",
+                "thoughtSignature": "EmAKXgFpFH0T8LY8NQJYM/6BsSMgx5uwVFFHYBs/D6fpj3VYNFVShiEbCvPz+siR8PuJxfArL3058Yiv7PV3Eves7tZ/v5WHrxJjxqTiig7Cb55eDC+hJ0jZb7KPANm3CR4="
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 5.124
+}

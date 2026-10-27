@@ -1,0 +1,69 @@
+{
+  "report": "report_08.jpg",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "Serum Cholesterol",
+        "value": 155.0,
+        "unit": "mg/dL",
+        "reference_range": "< 200",
+        "status": "normal"
+      },
+      {
+        "test_name": "Triglycerides",
+        "value": 106.0,
+        "unit": "mg/dL",
+        "reference_range": "< 150",
+        "status": "normal"
+      },
+      {
+        "test_name": "HDL Cholesterol",
+        "value": 60.0,
+        "unit": "mg/dL",
+        "reference_range": "> 40",
+        "status": "normal"
+      },
+      {
+        "test_name": "LDL Cholesterol (Direct)",
+        "value": 73.0,
+        "unit": "mg/dL",
+        "reference_range": "< 100",
+        "status": "normal"
+      },
+      {
+        "test_name": "VLDL Cholesterol",
+        "value": 23.0,
+        "unit": "mg/dL",
+        "reference_range": "< 30",
+        "status": "normal"
+      },
+      {
+        "test_name": "Cholesterol/HDL Ratio",
+        "value": 4.3,
+        "unit": "ratio",
+        "reference_range": "< 5.0",
+        "status": "normal"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1242,
+      "candidatesTokenCount": 376,
+      "totalTokenCount": 1618,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 150
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "latency_seconds": 2.966
+}

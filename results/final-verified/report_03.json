@@ -1,0 +1,95 @@
+{
+  "report": "report_03.pdf",
+  "prediction": {
+    "tests": [
+      {
+        "test_name": "T3",
+        "value": 179,
+        "unit": "ng/dL",
+        "reference_range": null
+      },
+      {
+        "test_name": "T4",
+        "value": 10.9,
+        "unit": "µg/dL",
+        "reference_range": null
+      },
+      {
+        "test_name": "TSH (Ultrasensitive)",
+        "value": 2.49,
+        "unit": "µIU/mL",
+        "reference_range": "0.27 - 4.20"
+      },
+      {
+        "test_name": "Vit D Total",
+        "value": 58.9,
+        "unit": "ng/mL",
+        "reference_range": "30.0 - 100.0"
+      },
+      {
+        "test_name": "Vit B12",
+        "value": 359,
+        "unit": "pg/mL",
+        "reference_range": "197 - 771"
+      },
+      {
+        "test_name": "Glycated Hb",
+        "value": 6.0,
+        "unit": "%",
+        "reference_range": null
+      },
+      {
+        "test_name": "FBS",
+        "value": 88,
+        "unit": "mg/dL",
+        "reference_range": "70 - 100"
+      },
+      {
+        "test_name": "PPBS",
+        "value": 95,
+        "unit": "mg/dL",
+        "reference_range": "70 - 140"
+      }
+    ]
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1456,
+      "candidatesTokenCount": 427,
+      "totalTokenCount": 1883,
+      "promptTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        },
+        {
+          "modality": "TEXT",
+          "tokenCount": 364
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"tests\": [\n    {\n      \"test_name\": \"T3\",\n      \"value\": 179,\n      \"unit\": \"ng/dL\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"T4\",\n      \"value\": 10.9,\n      \"unit\": \"µg/dL\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"TSH (Ultrasensitive)\",\n      \"value\": 2.49,\n      \"unit\": \"µIU/mL\",\n      \"reference_range\": \"0.27 - 4.20\"\n    },\n    {\n      \"test_name\": \"Vit D Total\",\n      \"value\": 58.9,\n      \"unit\": \"ng/mL\",\n      \"reference_range\": \"30.0 - 100.0\"\n    },\n    {\n      \"test_name\": \"Vit B12\",\n      \"value\": 359,\n      \"unit\": \"pg/mL\",\n      \"reference_range\": \"197 - 771\"\n    },\n    {\n      \"test_name\": \"Glycated Hb\",\n      \"value\": 6.0,\n      \"unit\": \"%\",\n      \"reference_range\": null\n    },\n    {\n      \"test_name\": \"FBS\",\n      \"value\": 88,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 100\"\n    },\n    {\n      \"test_name\": \"PPBS\",\n      \"value\": 95,\n      \"unit\": \"mg/dL\",\n      \"reference_range\": \"70 - 140\"\n    }\n  ]\n}",
+                "thoughtSignature": "EnMKcQFpFH0TZwV8aoUythK9aPEzs7j5DVZRDaN4dikWlYXvkUi/U+CYuze0Czj80XblvORumIT8oJxMsGN4k3pvyevxc01MpLi+D2q/CVNcbVDJEIxojNXMdiuGyIHMkx+rYHXBNdln6PxtAoCB03fC0Fum"
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 2.65
+}

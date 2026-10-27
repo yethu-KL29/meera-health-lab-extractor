@@ -1,0 +1,9 @@
+{
+  "implementation": "extract",
+  "model": "gemini-3.1-flash-lite",
+  "started_utc": "2026-10-27T04:17:11.772450+00:00",
+  "source_sha256": "c889397ad5a4079b38eafc03d8c8bfa543584a5c560900caef4a5360c480fc28",
+  "scorer_sha256": "3537cca6aa968ddcfcc85c5a93bf95a968237d21444a2ad131a5e6b3ac7bad86",
+  "actual_spend_usd": null,
+  "note": "Spend requires account billing verification."
+}

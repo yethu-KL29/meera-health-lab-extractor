@@ -1,0 +1,46 @@
+{
+  "report": "report_12.jpg",
+  "prediction": {
+    "tests": []
+  },
+  "usage": [
+    {
+      "promptTokenCount": 1453,
+      "candidatesTokenCount": 9,
+      "totalTokenCount": 1462,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 361
+        },
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1092
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  ],
+  "error": null,
+  "responses": [
+    {
+      "candidates": [
+        {
+          "content": {
+            "parts": [
+              {
+                "text": "{\n  \"tests\": []\n}",
+                "thoughtSignature": "EmAKXgFpFH0TN72dwSHGPNd/c9lMP1Gt8kF54Y/+1JM8oMVpxjG8q5hsQXAKssrfUi6rTNyveTZtNyv8/PiwHjVNrlpxg8EpCDz8Bz1p3rV3Z4TyWrTqAuPZnTzjv2kuZ58="
+              }
+            ],
+            "role": "model"
+          },
+          "finishReason": "STOP",
+          "index": 0
+        }
+      ],
+      "promptFeedback": null
+    }
+  ],
+  "latency_seconds": 2.904
+}
