@@ -1,6 +1,6 @@
 # Lab Report Extraction — Structured Improvement Plan
 
-**Provenance:** revised at the user's request after the first implementation. The original pre-implementation plan is preserved verbatim in [PLAN.original.md](PLAN.original.md) and commit `1f85650`. This revision is not presented as the initial plan. Existing measurements describe the earlier implementation until a new evaluation is recorded.
+**Provenance:** revised at the user's request after the first implementation. The original pre-implementation plan is preserved verbatim in [PLAN.original.md](PLAN.original.md) and commit `1f85650`. This revision is not presented as the initial plan. Historical measurements are preserved; the Pydantic follow-up has separate recorded runs. The next-phase proposals below are not implemented.
 
 ## Objective and boundaries
 
@@ -31,14 +31,71 @@ Gemini generation-time schema constraints were already present in the first impr
 ## Current follow-up sequence
 
 - **Completed before this revision:** source audit, frozen evaluation, baseline/final comparisons on 3.1 and 3.5 Flash-Lite, higher-DPI experiment, and failure documentation.
-- **Next:** implement the Pydantic models and generated schema without changing prompts, scoring rules, original labels, or baseline behavior. Add checks for required nullable fields, preserved qualitative values, invalid types, and request configuration.
-- **Then:** revalidate saved outputs; run fresh evaluations for the changed generation schema; report new results separately from historical runs. Commit and push the change and updated decision log.
+- **Completed follow-up:** implemented Pydantic generation/validation, centralized prompts, organized modules and supporting artifacts, and preserved the CLI. Required nullable fields, qualitative values, invalid types, request configuration, and Unicode CLI output are covered by 17 checks.
+- **Recorded verification:** revalidated saved outputs and measured the new schema separately on 3.1 and 3.5 Flash-Lite. Both retained labelled accuracy. The 3.1 prescription control failed after two HTTP 503s; a separate diagnostic retry succeeded without replacing the failed full-run observation. See [run provenance](RUNS.md).
 - **Still requires the user:** personally inspect the documented source/output examples and explain the work. Do not invent human verification, disagreements, elapsed hours, or unseen-test results.
 
 ## Acceptance criteria and safeguards
 
 - One expected row requires a matched test name and correct value, unit, and printed range. Report strict-row precision/recall/F1 and field errors using the frozen scorer; omissions and extras count.
 - All required fields are present; nullable fields remain required. Preserve `Negative`, `Present (+)`, `<0.5`, `2-3`, comma-grouped numbers, and zero. Reject malformed/truncated JSON, invalid types, non-finite numbers, and empty test names.
-- Keep `schema.json`, original `gold/`, `baseline.py`, and the original plan intact. Report audited labels separately with source evidence. Never replace missing measurements with invented numbers or errors with empty results.
+- Keep `schema.json`, original `gold/`, `baseline/extract.py`, and the original plan intact. Report audited labels separately with source evidence. Never replace missing measurements with invented numbers or errors with empty results.
 - Report model/settings, token usage, end-to-end latency, estimated list-price cost, and billing uncertainty. Keep prior failed runs and original measurements.
 - Verify the CLI and relevant regression checks; confirm no keys are tracked. Keep real commits without squashing or rewriting the initial plan's history.
+
+## Next phase — operational reliability (proposal only)
+
+**Scope:** a future iteration after the exercise timebox. Do not implement this section as part of the current submission. Prioritize failure classification and bounded retries before adding orchestration, automatic model fallback, or persistent caching. Add complexity only when failure evidence justifies it.
+
+### What the prototype handles today
+
+- At most **two HTTP attempts**: the first HTTP 429/500/502/503/504 gets one retry after a fixed two-second wait. Authentication/configuration failures are not retried.
+- Each HTTP call uses a **60-second socket timeout**. This is not a hard end-to-end deadline across rendering, network reads, waiting, and retrying.
+- Network/timeout failures, invalid JSON/schema output, blocked responses, and output truncation fail explicitly rather than becoming empty results. They are not automatically retried.
+- Evaluation records per-report latency, successful response usage, and HTTP failures. It does not implement project-wide quota management, an adaptive rate limiter, or production monitoring.
+- **Not yet handled:** distinguishing temporary rate limits from exhausted daily quota, server-specified retry delays, exponential backoff, random retry delays, total deadlines, and concurrency controls. The observed report_12 failure was HTTP 503, not evidence that quota was exhausted.
+
+### Priority 1: classify before retrying
+
+Preserve safe structured error details: HTTP status, provider error reason, retry hints, model, attempt count, and request ID when available. Avoid logging keys, headers, or raw medical documents. A status code alone is insufficient to determine the recovery action.
+
+| Failure | Proposed action | Evidence needed before shipping |
+|---|---|---|
+| HTTP 429 from short-term request/token limits | Wait according to retry hints; reduce request concurrency; bounded retry. | Simulated temporary limit recovers within the retry/time budget. |
+| HTTP 429 from daily quota, spend cap, or unavailable allocation | Stop or explicitly defer until the documented reset/account action; do not retry every few seconds. Unknown reason gets a conservative bounded policy and clear message. | Hard-quota fixture stops without a retry loop and identifies the required next step. |
+| Transient HTTP 500/502/503/504 | Capped exponential backoff with random delay; stop at the overall deadline. Do not assume every 5xx, such as unsupported capability errors, is transient. | Recovery and persistent-outage cases respect all limits. |
+| Invalid request, authentication, permission, or model access | Fail with an actionable configuration message; do not resend the same request blindly. | 400/401/403/404 fixtures make one attempt. |
+| Network failure or timeout | Distinguish transient transport faults from persistent DNS/TLS/configuration problems. A timeout may occur after the provider processed the request; a retry may incur another charge. | Ambiguous-completion case is surfaced and retry cost is not assumed to be zero. |
+| Blocked, truncated, or schema-invalid output | Diagnose separately from transport failure. Consider one targeted smaller-page retry only after measuring its benefit; preserve coverage and explicit failure semantics. | Malformed output never appears as a valid empty report; chunk boundaries do not drop or duplicate rows. |
+
+Google distinguishes temporary rate limits from daily quota exhaustion in its [API error guide](https://ai.google.dev/gemini-api/docs/api-errors). Limits can apply to requests and tokens at the project level; creating another key in the same project does not create a separate quota. Inspect the project's actual limits rather than inventing fixed free-tier capacity ([rate limits](https://ai.google.dev/gemini-api/docs/rate-limits)).
+
+### Priority 2: make retry budgets explicit
+
+- Honor a valid `Retry-After` header or provider retry-delay detail when supplied. If the requested wait exceeds the remaining deadline, return a deferred/failed outcome rather than shortening the wait and retrying too early.
+- Use capped exponential backoff with jitter: increase the allowed wait after repeated transient failures and add randomness so concurrent requests do not all retry together. This follows Google's [retry guidance](https://ai.google.dev/gemini-api/docs/troubleshooting).
+- Set separate limits for attempts, maximum individual delay, and total elapsed time including preprocessing and waits. Candidate settings to evaluate: three total attempts, a 20-second backoff cap, and a 120-second overall deadline. These are proposed experiment settings, not implemented guarantees or established service targets.
+- Derive per-call timeouts from the remaining time budget and support cancellation. Do not treat a socket timeout as proof that the entire operation will finish within that time.
+- Keep exactly one owner for automatic retries. If adopting the Google SDK later, inspect its built-in retry behavior so SDK retries and application retries do not multiply attempts unexpectedly.
+- Record every attempt and its observed usage; unknown failed-attempt cost stays unknown. Do not claim provider-side idempotency or assume repeated generation requests are free.
+
+### Priority 3: protect throughput, cost, and result integrity
+
+| Area | Proposed next step | Completion check |
+|---|---|---|
+| Throughput at 10,000 reports/day | Estimate peak requests and token demand including retries/pages; use bounded concurrency and project/model-aware pacing. Add a queue only if an actual batch workflow needs deferred work. | Load simulation stays within configured request/token budgets and measures completed reports, not just attempted calls. |
+| Cost and tail latency | Add per-report token/spend ceilings; separate preprocessing, provider time, retry waits, and attempts. Measure p50/p95 latency, failures, and successful throughput across repeated runs. | Retry-enabled quality is reported alongside increased cost and tail latency, including incomplete billing visibility. |
+| Long or ambiguous reports | Bound file size, page count, and request/output size. Evaluate ordered page chunks and selective review for unreadable fields; retain null/uncertainty rather than guessing. | Multi-page and repeated-test fixtures detect omitted/duplicated rows; unreadable text does not produce invented digits. |
+| Schema versus factual correctness | Keep Pydantic structural checks and source-based evaluation separate. Expand audited, diverse reports and reserve an untouched test set; test wrong comparators/units and instructions embedded in document text. | Valid JSON with a wrong value still fails the extraction evaluation. Report uncertainty rather than promising perfect medical accuracy. |
+| Optional fallback/caching | Keep model choice explicit until fallback is independently evaluated. If caching is justified, key it by document content, model, prompt, schema, and rendering version; define permitted retention and access. | No silent model change, stale result after a prompt change, cross-user reuse, or duplicated saved row. |
+
+### Interview questions this phase should answer
+
+- **“Do you handle quota?”** Partly: there is one bounded retry on 429 today, but no quota-reason classification or project-wide rate limiter. Daily exhaustion needs a different action from a short traffic spike.
+- **“Why not retry everything?”** Permanent configuration errors and incorrect extraction do not become correct by repeatedly resending the same request; retries also consume time and may incur charges.
+- **“Does Pydantic make the result correct?”** It validates structure and types. A perfectly valid JSON value can still disagree with the source, which is why the extraction evaluation is separate.
+- **“Why did a 100% audited score coexist with a failed report?”** Accuracy uses the eight labelled reports; the failed prescription was unlabelled. Completion/failure rate is reported separately, and the failure was not hidden or replaced by a retry.
+- **“Will this scale to 10,000 reports/day?”** The cost projection is not a load test. Peak concurrency, quotas, token demand, retries, service availability, and tail latency still require measurement.
+- **“What would you build next?”** First test error classification and deadline-aware backoff using simulated errors. Only then consider pacing, page chunking, fallback, or caching if measured failures justify them.
+
+**Verification plan:** use deterministic mocked responses and a fake clock for retry/reset/deadline scenarios before limited live checks. Preserve the frozen extraction scorer and report both original/audited labels. Do not spend the remaining exercise time implementing a production service, and do not describe these proposals as completed work.
